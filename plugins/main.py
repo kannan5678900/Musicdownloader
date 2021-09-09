@@ -192,6 +192,30 @@ async def _banned_usrs(c, m):
 
     return
 
+@Client.on_message(filters.command(['help']))
+async def help(client, message):
+       await message.reply("<b>Simplest Way😂</b>\n\n<i>How many times have I said that just giving the name of a song is enough.\nAlso You can Search Songs/YouTube Videos Using my Inline Mode!🔥\nDo not expect any other help from me😠</i>\n\n<b>Eg</b> `Vaathi Coming`",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('𝗦𝗼𝘂𝗿𝗰𝗲', url='https://github.com/Avengers105/Music-Bot')
+                ]
+            ]
+        )
+    )
+
+@Client.on_message(filters.command(['about']))
+async def about(client, message):
+       await message.reply("➪<b>Name</b> : ✫<i>Music Downloader</i>\n➪<b>Developer</b> : ✫[𝘗𝘦𝘵𝘦𝘳 𝘗𝘢𝘳𝘬𝘦𝘳](https://t.me/Peterparker6)\n➪<b>Language</b> : ✫<i>Python3</i>\n➪<b>Server</b> : ✫[𝘏𝘦𝘳𝘰𝘬𝘶](https://heroku.com/)\n➪<b>Source Code</b> : ✫[𝘊𝘭𝘪𝘤𝘬 𝘏𝘦𝘳𝘦](https://github.com/Avengers105/Music-Bot)",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton('Close🚫', callback_data="closeMeh")
+                ]
+            ]
+        )
+   )
+
 @Client.on_callback_query()
 async def callback_handlers(bot: Client, cb: CallbackQuery):
     user_id = cb.from_user.id
