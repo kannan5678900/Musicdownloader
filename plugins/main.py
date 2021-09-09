@@ -21,7 +21,7 @@ DB_NAME = config.DB_NAME
 db = Database(DB_URL, DB_NAME)
 
 
-@Bot.on_message(filters.private)
+@Client.on_message(filters.private)
 async def _(bot, cmd):
     await handle_user_status(bot, cmd)
 
