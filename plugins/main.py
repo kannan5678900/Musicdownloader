@@ -5,7 +5,6 @@ import requests
 import youtube_dl
 from youtube_search import YoutubeSearch
 from pyrogram import Client
-from pyrogram import Client as Bot
 from pyrogram import StopPropagation, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
@@ -27,15 +26,7 @@ async def _(bot, cmd):
     await handle_user_status(bot, cmd)
 
 
-Bot = Client(
-    "MrDeveloper",
-    bot_token=config.BOT_TOKEN,
-    api_id=config.API_ID,
-    api_hash=config.API_HASH,
-)
-
-
-@Bot.on_message(filters.command("start") & filters.private)
+@Client.on_message(filters.command("start") & filters.private)
 async def startprivate(client, message):
     # return
     chat_id = message.from_user.id
@@ -62,7 +53,7 @@ async def startprivate(client, message):
     raise StopPropagation
 
 
-@Bot.on_message(filters.command("settings"))
+@Client.on_message(filters.command("settings"))
 async def opensettings(bot, cmd):
     user_id = cmd.from_user.id
     await cmd.reply_text(
@@ -81,7 +72,7 @@ async def opensettings(bot, cmd):
     )
 
 
-@Bot.on_message(filters.private & filters.command("broadcast"))
+@Client.on_message(filters.private & filters.command("broadcast"))
 async def broadcast_handler_open(_, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -92,7 +83,7 @@ async def broadcast_handler_open(_, m):
     await broadcast(m, db)
 
 
-@Bot.on_message(filters.private & filters.command("stats"))
+@Client.on_message(filters.private & filters.command("stats"))
 async def sts(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -104,7 +95,7 @@ async def sts(c, m):
     )
 
 
-@Bot.on_message(filters.private & filters.command("ban_user"))
+@Client.on_message(filters.private & filters.command("ban_user"))
 async def ban(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -144,7 +135,7 @@ async def ban(c, m):
         )
 
 
-@Bot.on_message(filters.private & filters.command("unban_user"))
+@Client.on_message(filters.private & filters.command("unban_user"))
 async def unban(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -179,7 +170,7 @@ async def unban(c, m):
         )
 
 
-@Bot.on_message(filters.private & filters.command("banned_users"))
+@Client.on_message(filters.private & filters.command("banned_users"))
 async def _banned_usrs(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -205,7 +196,7 @@ async def _banned_usrs(c, m):
 
     return
 
-@Bot.on_message(filters.text)
+@Client.on_message(filters.text)
 def a(client, message):
     query=message.text
     print(query)
@@ -270,7 +261,7 @@ def a(client, message):
     except Exception as e:
         print(e)
 
-@Bot.on_callback_query()
+@Client.on_callback_query()
 async def callback_handlers(bot: Client, cb: CallbackQuery):
     user_id = cb.from_user.id
     if "closeMeh" in cb.data:
@@ -298,5 +289,3 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         await cb.answer(
             f"Successfully setted notifications to {await db.get_notif(user_id)}"
         )
-
-Bot.run()
