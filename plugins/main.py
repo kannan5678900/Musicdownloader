@@ -37,7 +37,7 @@ async def startprivate(client, message):
         [
             [
                 InlineKeyboardButton("Developer", url="https://t.me/Peterparker6"),
-                InlineKeyboardButton("Source", url="https://t.me/n_a_c_bot_developers")
+                InlineKeyboardButton("Source", url="https://github.com/Avengers105/Music-Bot")
             ],
             [
                 InlineKeyboardButton('Search Inline', switch_inline_query_current_chat='')
