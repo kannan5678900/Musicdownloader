@@ -9,3 +9,6 @@ youtube_search
 requests
 ffmpeg-python
 ffmpeg
+bs4
+beautifulsoup4
+search_engine_parser
