@@ -195,7 +195,7 @@ async def _banned_usrs(c, m):
 
 @Client.on_message(filters.command(['help']))
 async def help(client, message):
-       await message.reply("<b>Simplest Way😂</b>\n\n<i>How many times have I said that just giving the name of a song is enough.\n\nAlso You can Search Songs/YouTube Videos Using my Inline Mode!🔥\n\nDo not expect any other help from me😠</i>\n\n<b>Eg</b> `Faded`",
+       await message.reply("<b>Available Commands</b>\n\n<i>Just Sent me a Song name to download it from YT Music.</i>\n**Eg** `Verithanam`\n\n/shazam - **Try This Command YourSelf**\n/google",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
