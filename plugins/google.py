@@ -14,7 +14,7 @@ from search_engine_parser import GoogleSearch
 async def google(_, message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("**Give me Something to Search**🤬\n\n`/google Avengers`")
+            await message.reply_text("**Give me Something to Search**🤭\n\n`/google Avengers`")
             return
         text = message.text.split(None, 1)[1]
         gresults = await GoogleSearch().async_search(text, 1)
