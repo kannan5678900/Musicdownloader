@@ -7,8 +7,6 @@ from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-## Extra Fns -------
-# Convert hh:mm:ss to seconds
 def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
@@ -36,11 +34,6 @@ def a(client, message):
             thumbnail = results[0]["thumbnails"][0]
             duration = results[0]["duration"]
             views = results[0]["views"]
-
-            ## UNCOMMENT THIS IF YOU WANT A LIMIT ON DURATION. CHANGE 1800 TO YOUR OWN PREFFERED DURATION AND EDIT THE MESSAGE (30 minutes cap) LIMIT IN SECONDS
-            # if time_to_seconds(duration) >= 1800:  # duration limit
-            #     m.edit("Exceeded 30mins cap")
-            #     return
           
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
@@ -71,7 +64,7 @@ def a(client, message):
         message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=thumb_name)
         m.delete()
     except Exception as e:
-        m.edit('😔 𝙵𝚊𝚒𝚕𝚎𝚍\n\n𝚁𝚎𝚙𝚘𝚛𝚝 𝚃𝚑𝚒𝚜 𝙴𝚛𝚛𝚘𝚛 𝚝𝚘 𝙵𝚒𝚡 @Peterparker6 🧡')
+        m.edit('😔 𝙵𝚊𝚒𝚕𝚎𝚍\n\n𝚁𝚎𝚙𝚘𝚛𝚝 𝚃𝚑𝚒𝚜 𝙴𝚛𝚛𝚘𝚛 𝚝𝚘 𝙵𝚒𝚡 @Peterparker6 🌝')
         print(e)
     try:
         os.remove(audio_file)
