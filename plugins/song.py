@@ -16,8 +16,26 @@ def time_to_seconds(time):
 def a(client, message):
     query=message.text
     print(query)
-    m = message.reply('🔎 𝗦𝗲𝗮𝗿𝗰𝗵𝗶𝗻𝗴 𝘁𝗵𝗲 𝗦𝗼𝗻𝗴...')
-    ydl_opts = {"format": "bestaudio[ext=m4a]"}
+    m = message.reply('`🔎 𝗦𝗲𝗮𝗿𝗰𝗵𝗶𝗻𝗴 𝘁𝗵𝗲 𝗦𝗼𝗻𝗴...`')
+    ydl_opts = {
+        "format": "bestaudio",
+        "addmetadata": True,
+        "key": "FFmpegMetadata",
+        "writethumbnail": True,
+        "prefer_ffmpeg": True,
+        "geo_bypass": True,
+        "nocheckcertificate": True,
+        "postprocessors": [
+            {
+                "key": "FFmpegExtractAudio",
+                "preferredcodec": "mp3",
+                "preferredquality": "720",
+            }
+        ],
+        "outtmpl": "%(id)s.mp3",
+        "quiet": True,
+        "logtostderr": False,
+    }
     try:
         results = []
         count = 0
@@ -26,10 +44,8 @@ def a(client, message):
                 time.sleep(1)
             results = YoutubeSearch(query, max_results=1).to_dict()
             count += 1
-        # results = YoutubeSearch(query, max_results=1).to_dict()
         try:
             link = f"https://youtube.com{results[0]['url_suffix']}"
-            # print(results)
             title = results[0]["title"]
             thumbnail = results[0]["thumbnails"][0]
             duration = results[0]["duration"]
