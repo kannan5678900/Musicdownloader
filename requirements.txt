@@ -12,3 +12,4 @@ ffmpeg
 bs4
 beautifulsoup4
 search_engine_parser
+avconv
