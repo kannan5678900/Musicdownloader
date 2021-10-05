@@ -3,7 +3,7 @@ TgCrypto==1.2.2
 aiofiles
 motor
 dnspython
-youtube_dl-2021.06.06
+youtube_dl-U
 youtube_search_python
 youtube_search
 requests
