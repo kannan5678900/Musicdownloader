@@ -1,5 +1,5 @@
-Pyrogram==1.2.9
-TgCrypto==1.2.2
+Pyrogram
+TgCrypto
 aiofiles
 motor
 dnspython
