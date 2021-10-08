@@ -17,12 +17,12 @@ def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
 
 @Client.on_message(filters.command(['video']))
-def a(client, message, m: Message):
+def a(client, message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply("**Searching for Video Song**")
+    m = message.reply_sticker("AAMCAQADGQEAAhFrYV_7LupOv3kCtasxZYZypjMgoyUAAqYBAAKr5ThHbJvfJwJyzaoBAAdtAAMhBA")
     ydl_opts = {
         "format": "worst",
         "addmetadata": True,
