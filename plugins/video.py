@@ -3,9 +3,8 @@ import os
 import time
 import requests
 import youtube_dl
-from pyrogram.types import Message
 from pyrogram import filters
-from pyrogram import Client
+from pyrogram import Client as thor
 from youtubesearchpython import SearchVideos
 from youtube_search import YoutubeSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
@@ -23,7 +22,7 @@ def a(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply("AAMCAQADGQEAAhFrYV_7LupOv3kCtasxZYZypjMgoyUAAqYBAAKr5ThHbJvfJwJyzaoBAAdtAAMhBA")
+    m = message.reply('AAMCAQADGQEAAhFrYV_7LupOv3kCtasxZYZypjMgoyUAAqYBAAKr5ThHbJvfJwJyzaoBAAdtAAMhBA')
     ydl_opts = {
         "format": "worst",
         "addmetadata": True,
