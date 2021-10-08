@@ -17,12 +17,12 @@ def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
 
 @Client.on_message(filters.command(["v", "video", "vsong"]))
-def video(client, message, Message):
+def a(client,message,Message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply('AAMCAQADGQEAAhFrYV_7LupOv3kCtasxZYZypjMgoyUAAqYBAAKr5ThHbJvfJwJyzaoBAAdtAAMhBA')
+    m = message.reply("`Searching for Video Song...`")
     ydl_opts = {
         "format": "worst",
         "addmetadata": True,
@@ -76,7 +76,7 @@ def video(client, message, Message):
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        message.reply_video(video_file, caption=rep, parse_mode='md',quote=False, duration=dur, reply_markup=buttons, thumb=thumb_name)
+        message.reply_video(video_file, caption=rep, parse_mode='md',quote=False, duration=dur, reply_markup=buttons, thumb=thumb_name, ttl_seconds=50)
         m.delete()
     except Exception as e:
         m.edit('😔 𝙵𝚊𝚒𝚕𝚎𝚍\n\n𝚁𝚎𝚙𝚘𝚛𝚝 𝚃𝚑𝚒𝚜 𝙴𝚛𝚛𝚘𝚛 𝚝𝚘 𝙵𝚒𝚡 @Peterparker6 🧡')
