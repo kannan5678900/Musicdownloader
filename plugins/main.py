@@ -21,6 +21,15 @@ db = Database(DB_URL, DB_NAME)
 async def _(bot, cmd):
     await handle_user_status(bot, cmd)
 
+START_TIME = datetime.utcnow()
+START_TIME_ISO = START_TIME.replace(microsecond=0).isoformat()
+TIME_DURATION_UNITS = (
+    ('week', 60 * 60 * 24 * 7),
+    ('day', 60 * 60 * 24),
+    ('hour', 60 * 60),
+    ('min', 60),
+    ('sec', 1)
+)
 
 @Client.on_message(filters.command("start") & filters.private)
 async def startprivate(client, message):
@@ -228,6 +237,17 @@ async def ping_pong(client, m: Message):
         "🏓 `PONG!!`\n"
         f"⚡️ `{delta_ping * 1000:.3f} ms`"
     )
+
+@Client.on_message(filters.command("uptime"))
+async def get_uptime(client, m: Message):
+    current_time = datetime.utcnow()
+    uptime_sec = (current_time - START_TIME).total_seconds()
+    uptime = await _human_time_duration(int(uptime_sec))
+    await m.reply_text(
+        "🤖 Bot status:\n"
+        f"• **Uptime:** `{uptime}`\n"
+        f"• **Start time:** `{START_TIME_ISO}`"
+    )   
 
 @Client.on_callback_query()
 async def callback_handlers(bot: Client, cb: CallbackQuery):
