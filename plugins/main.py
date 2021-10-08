@@ -66,7 +66,7 @@ async def startprivate(client, message):
             ]
         ]
     )
-    welcomed = f"👋 𝗛𝗲𝗹𝗹𝗼 **{message.from_user.mention()}**\n\n𝐈 𝐚𝐦 𝐌𝐮𝐬𝐢𝐜 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫[🎶](https://telegra.ph/file/92a1f08c6ca91e0e8c163.mp4)\n\n𝑺𝒆𝒏𝒕 𝒕𝒉𝒆 𝑵𝒂𝒎𝒆 𝒐𝒇 𝒕𝒉𝒆 𝐒𝐨𝐧𝐠 𝒀𝒐𝒖 𝑾𝒂𝒏𝒕... 😍🥰🤗\n\n𝙅𝙪𝙨𝙩 𝗧𝘆𝗽𝗲 𝙖 𝗦𝗼𝗻𝗴 𝗡𝗮𝗺𝗲🥳\n<b>Also Support Inline Mode</b>\n\n<i>Check</i> /help <i>For More info©.</i>"
+    welcomed = f"👋 𝗛𝗲𝗹𝗹𝗼 **{message.from_user.mention()}**\n\n<b>I am a Advanced Music Downloader With many Features</b>[🤩](https://telegra.ph/file/92a1f08c6ca91e0e8c163.mp4)\n\n𝑺𝒆𝒏𝒕 𝒕𝒉𝒆 𝑵𝒂𝒎𝒆 𝒐𝒇 𝒕𝒉𝒆 𝐒𝐨𝐧𝐠 𝒀𝒐𝒖 𝑾𝒂𝒏𝒕... 😍🥰🤗\n\n<b>I Also Support Inline YouTube Search.</b>\n\n<i>Check</i> /help <i>For More info©.</i>"
     await message.reply_text(welcomed, reply_markup=joinButton)
     raise StopPropagation
 
@@ -216,7 +216,7 @@ async def _banned_usrs(c, m):
 
 @Client.on_message(filters.command(['help']))
 async def help(client, message):
-       await message.reply("<u>🌟**Available Commands**</u>\n\n⚡/s - __To Download audio Songs(MP3)__.\n**Eg:** `/s Faded`\n⚡/v - __To Download Video Songs(MP4)__.\n**Eg:** `/v Verithanam\n⚡/shazam - __Try This Command YourSelf.🤪__\n⚡/anime - __To Search Animes__\n⚡/google - __To Search Google__",
+       await message.reply("<u>🌟**Available Commands**</u>\n\n⚡/s - __To Download audio Songs(MP3)__.\n**Eg:** `/s Faded`\n⚡/v - __To Download Video Songs(MP4)__.\n**Eg:** `/v Verithanam`\n⚡/shazam - __Try This Command YourSelf🤪__.\n⚡/anime - __To Search Animes__.\n⚡/google - __To Search Google__.",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
