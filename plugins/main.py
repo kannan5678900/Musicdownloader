@@ -1,5 +1,5 @@
 import os
-import time
+from time import time
 from pyrogram import Client
 from pyrogram import StopPropagation, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
@@ -217,6 +217,17 @@ async def about(client, message):
             ]
         )
    )
+
+
+@Client.on_message(filters.command("ping"))
+async def ping_pong(client, m: Message):
+    start = time()
+    copy = await m.reply_text("Pinging...")
+    delta_ping = time() - start
+    await copy.edit_text(
+        "🏓 `PONG!!`\n"
+        f"⚡️ `{delta_ping * 1000:.3f} ms`"
+    )
 
 @Client.on_callback_query()
 async def callback_handlers(bot: Client, cb: CallbackQuery):
