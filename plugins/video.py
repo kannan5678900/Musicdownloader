@@ -5,7 +5,7 @@ import requests
 import youtube_dl
 from pyrogram.types import Message
 from pyrogram import filters
-from pyrogram import Client as thor
+from pyrogram import Client
 from youtubesearchpython import SearchVideos
 from youtube_search import YoutubeSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
