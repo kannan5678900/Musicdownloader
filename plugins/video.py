@@ -7,7 +7,7 @@ from pyrogram.types import Message
 from pyrogram import filters, Client
 from youtubesearchpython import SearchVideos
 from youtube_search import YoutubeSearch
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 def time_to_seconds(time):
     stringt = str(time)
@@ -16,8 +16,8 @@ def time_to_seconds(time):
 def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
 
-@Client.on_message(filters.command(["vsong"]))
-def a(client, message):
+@Client.on_message(filters.command(["video"]))
+def a(client, message, m: Message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
