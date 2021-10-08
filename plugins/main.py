@@ -2,7 +2,7 @@ import os
 from time import time
 from pyrogram import Client
 from pyrogram import StopPropagation, filters
-from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 import config
 from handlers.broadcast import broadcast
