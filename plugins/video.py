@@ -13,9 +13,6 @@ def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
-def progress(current, total):
-    print(f"{current * 100 / total:.1f}%")
-
 @Client.on_message(filters.command(["v"]))
 def a(client, message):
     query = ''
@@ -60,11 +57,11 @@ def a(client, message):
             return
     except Exception as e:
         m.edit(
-            "❎ 𝐹𝑜𝑢𝑛𝑑 𝑁𝑜𝑡ℎ𝑖𝑛𝑔. 𝐒𝐨𝐫𝐫𝐲.\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 𝖮𝗋 𝖲𝖾𝖺𝗋𝖼𝗁 𝖺𝗍 Google.com 𝖥𝗈𝗋 𝖢𝗈𝗋𝗋𝖾𝖼𝗍 𝖲𝗉𝖾𝗅𝗅𝗂𝗇𝗀 𝗈𝖿 𝗍𝗁𝖾 𝙎𝙤𝙣𝙜.\n\nEg.`Believer`"
+            "❎ 𝐹𝑜𝑢𝑛𝑑 𝑁𝑜𝑡ℎ𝑖𝑛𝑔. 𝐒𝐨𝐫𝐫𝐲.\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 𝖮𝗋 𝖲𝖾𝖺𝗋𝖼𝗁 𝖺𝗍 Google.com 𝖥𝗈𝗋 𝖢𝗈𝗋𝗋𝖾𝖼𝗍 𝖲𝗉𝖾𝗅𝗅𝗂𝗇𝗀 𝗈𝖿 𝗍𝗁𝖾 𝙎𝙤𝙣𝙜.\n\nEg.`/v Believer`"
         )
         print(str(e))
         return
-    m.edit("`Uploading Your File....Please Wait`[🎧](https://telegra.ph/file/33e209cb838912e8714c9.mp4)")
+    m.edit("__Uploading Your Video....Please Wait__[🎧](https://telegra.ph/file/988fecf605d9e2caf0a50.mp4)")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -76,10 +73,10 @@ def a(client, message):
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        message.reply_video(video_file, caption=rep, parse_mode='md',quote=False, duration=dur, reply_markup=buttons, thumb=thumb_name, ttl_seconds=50)
+        message.reply_video(video_file, caption=rep, parse_mode='md',quote=False, duration=dur, reply_markup=buttons, thumb=thumb_name)
         m.delete()
     except Exception as e:
-        m.edit('😔 𝙵𝚊𝚒𝚕𝚎𝚍\n\n𝚁𝚎𝚙𝚘𝚛𝚝 𝚃𝚑𝚒𝚜 𝙴𝚛𝚛𝚘𝚛 𝚝𝚘 𝙵𝚒𝚡 @Peterparker6 🧡')
+        m.edit('😔 **Failed**\n\n`Report this Error to` @Peterparker6 🇮🇳')
         print(e)
     try:
         os.remove(video_file)
