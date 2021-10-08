@@ -17,7 +17,7 @@ def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
 
 @Client.on_message(filters.command(["video"]))
-def video(client, message):
+def a(client, message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
