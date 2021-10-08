@@ -19,7 +19,7 @@ def a(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply("**Searching for Video Song 📺...**")
+    m = message.reply("**Searching for the Video Song 📺...**")
     ydl_opts = {
         "format": "worst",
         "addmetadata": True,
@@ -53,7 +53,7 @@ def a(client, message):
 
         except Exception as e:
             print(e)
-            m.edit('𝐅𝐨𝐮𝐧𝐝 𝐍𝐨𝐭𝐡𝐢𝐧𝐠. 𝐓𝐫𝐲 𝐂𝐡𝐚𝐧𝐠𝐢𝐧𝐠 𝐓𝐡𝐞 𝐒𝐩𝐞𝐥𝐥𝐢𝐧𝐠 𝐀 𝐋𝐢𝐭𝐭𝐥𝐞 😐')
+            m.edit('𝐅𝐨𝐮𝐧𝐝 𝐍𝐨𝐭𝐡𝐢𝐧𝐠. 𝐓𝐫𝐲 𝐂𝐡𝐚𝐧𝐠𝐢𝐧𝐠 𝐓𝐡𝐞 𝐒𝐩𝐞𝐥𝐥𝐢𝐧𝐠 𝐀 𝐋𝐢𝐭𝐭𝐥𝐞 🌝')
             return
     except Exception as e:
         m.edit(
@@ -61,7 +61,7 @@ def a(client, message):
         )
         print(str(e))
         return
-    m.edit("__Uploading Your Video....Please Wait__[🎧](https://telegra.ph/file/988fecf605d9e2caf0a50.mp4)")
+    m.edit("__Uploading Your Video....Please Wait__🙏🏻\nPlease don't Spam me![🥺](https://telegra.ph/file/988fecf605d9e2caf0a50.mp4)")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
