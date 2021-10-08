@@ -22,7 +22,7 @@ def a(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.send_sticker("CAADBAADzg4AAvLQYAEz_x2EOgdRwBYE")
+    m = message.reply("**Searching for Video Songs 📺...**")
     ydl_opts = {
         "format": "worst",
         "addmetadata": True,
