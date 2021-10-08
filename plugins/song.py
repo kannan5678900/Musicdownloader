@@ -13,7 +13,7 @@ def time_to_seconds(time):
 
 
 @Client.on_message(filters.command(["s"]))
-def a(client, message, update):
+def a(client, message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
