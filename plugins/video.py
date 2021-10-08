@@ -16,8 +16,8 @@ def time_to_seconds(time):
 def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
 
-@Client.on_message(filters.command(["video"]))
-def a(client, message, m: Message):
+
+def /video(client, message, m: Message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
