@@ -13,13 +13,13 @@ def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
-@Client.on_message(filters.command(["v"]))
+@Client.on_message(filters.command(["v", "video", "vsong"]))
 def a(client, message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply("**Searching for Video Songs 📺...**")
+    m = message.reply("**Searching for Video Song 📺...**")
     ydl_opts = {
         "format": "worst",
         "addmetadata": True,
