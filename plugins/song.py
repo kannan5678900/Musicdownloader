@@ -16,7 +16,7 @@ def time_to_seconds(time):
 def a(client, message):
     query=message.text
     print(query)
-    m = message.reply('__🔎 𝗦𝗲𝗮𝗿𝗰𝗵𝗶𝗻𝗴 𝘁𝗵𝗲 𝗦𝗼𝗻𝗴...__')
+    m = message.reply('🔎 𝗦𝗲𝗮𝗿𝗰𝗵𝗶𝗻𝗴 𝘁𝗵𝗲 𝗦𝗼𝗻𝗴...')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = []
