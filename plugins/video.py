@@ -4,7 +4,8 @@ import time
 import requests
 import youtube_dl
 from pyrogram.types import Message
-from pyrogram import filters, Client
+from pyrogram import filters
+from pyrogram import Client as thor
 from youtubesearchpython import SearchVideos
 from youtube_search import YoutubeSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
@@ -16,13 +17,13 @@ def time_to_seconds(time):
 def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
 
-@Client.on_message(filters.command(["video"]))
+@thor.on_message(filters.command(["video"]))
 def a(client, message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply_sticker("AAMCAQADGQEAAhFrYV_7LupOv3kCtasxZYZypjMgoyUAAqYBAAKr5ThHbJvfJwJyzaoBAAdtAAMhBA")
+    m = message.reply("AAMCAQADGQEAAhFrYV_7LupOv3kCtasxZYZypjMgoyUAAqYBAAKr5ThHbJvfJwJyzaoBAAdtAAMhBA")
     ydl_opts = {
         "format": "worst",
         "addmetadata": True,
