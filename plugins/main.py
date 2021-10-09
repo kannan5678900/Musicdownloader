@@ -246,8 +246,8 @@ async def ping_pong(client, m: Message):
     copy = await m.reply_text("Pinging...")
     delta_ping = time() - start
     await copy.edit_text(
-        "🏓 `PONG!!`\n"
-        f"⚡️ `{delta_ping * 1000:.3f} ms`"
+        "🍁 `PONG!!`\n"
+        f"🔥 `{delta_ping * 1000:.3f} ms`"
     )
 
 @Client.on_message(filters.command("uptime"))
