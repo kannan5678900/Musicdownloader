@@ -23,7 +23,7 @@ async def fetch_audio(client, message):
     elif warner_stark.audio:
         lel = await edit_or_reply(message, "`Download Started !`")
         final_warner = await message.reply_to_message.download()
-    await lel.edit("`Almost Done!🤩`")
+    await lel.edit("`Almost Done!🔥`")
     await lel.delete()
     return final_warner
 
@@ -42,7 +42,7 @@ async def edit_or_reply(message, text, parse_mode="md"):
 async def shazamm(client, message):
     thor = await edit_or_reply(message, "`Shazaming In Progress!😑`")
     if not message.reply_to_message:
-        await thor.edit("**Reply To Any Audio.**😁")
+        await thor.edit("**Reply To Any Audio.**😏😡")
         return
     if os.path.exists("friday.mp3"):
         os.remove("friday.mp3")
@@ -59,7 +59,7 @@ async def shazamm(client, message):
         )
         return
     if xo.get("success") is False:
-        await thor.edit("`Song Not Found IN Database. Please Try Again.`")
+        await thor.edit("`Song Not Found IN Database. Please Try Again.`🥲")
         os.remove(downloaded_file_name)
         return
     xoo = xo.get("response")
