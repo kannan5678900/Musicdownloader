@@ -6,7 +6,7 @@ TgCrypto
 aiofiles
 requests
 dnspython
-youtube-dl==2021.4.1
+youtube-dl==2021.06.06
 ffmpeg-python
 beautifulsoup4
 youtube_search
