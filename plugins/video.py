@@ -19,7 +19,7 @@ def a(client, message):
         query += ' ' + str(i)
     print(query)
     chat_id = message.chat.id
-    m = message.reply("**Searching for the Video Song 📺...**")
+    m = message.reply("**📺Searching for the Video Songs...**")
     ydl_opts = {
         "format": "best",
         "addmetadata": True,
