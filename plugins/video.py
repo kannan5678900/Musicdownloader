@@ -1,12 +1,12 @@
-import ffmpeg
 import os
+import ffmpeg
 import time
 import requests
 import youtube_dl
 import yt_dlp
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 def time_to_seconds(time):
     stringt = str(time)
@@ -20,7 +20,7 @@ def a(client, message):
     print(query)
     m = message.reply("**Searching for the Video Song 📺...**")
     ydl_opts = {
-        "format": "worst",
+        "format": "best",
         "addmetadata": True,
         "key": "FFmpegMetadata",
         "prefer_ffmpeg": True,
