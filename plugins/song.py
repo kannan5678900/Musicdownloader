@@ -33,6 +33,8 @@ def a(client, message):
             thumbnail = results[0]["thumbnails"][0]
             duration = results[0]["duration"]
             views = results[0]["views"]
+
+            thor = results[0]["channel"]
           
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
@@ -54,13 +56,14 @@ def a(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        ironman = f'🍁 **Tittle** : __{title}__\n🍁 **Channel** : 
+        ironman = f'🍁 **Tittle** : __{title}__\n🍁 **Channel** : `{thor}`'
         rep = f"🎧 𝗧𝗶𝘁𝘁𝗹𝗲 : [{title[:35]}]({link})\n⏳ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : `{duration}`\n👀 𝗩𝗶𝗲𝘄𝘀 : `{views}`\n\n📮 **By** : [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n📤 𝗕𝘆 : @MusicDownloadv2bot"
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton('Search Inline', switch_inline_query_current_chat='')]])
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
+        message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
         message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=False, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=thumb_name)
         m.delete()
     except Exception as e:
