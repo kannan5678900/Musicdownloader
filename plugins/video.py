@@ -3,9 +3,8 @@ import os
 import time
 import requests
 import youtube_dl
-from pyrogram import filters
-from pyrogram import Client
-from youtubesearchpython import SearchVideos
+import yt_dlp
+from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
@@ -64,7 +63,7 @@ def a(client, message):
         return
     m.edit("__Uploading Your Video....Please Wait__🙏🏻\nPlease don't Spam me![🥺](https://telegra.ph/file/988fecf605d9e2caf0a50.mp4)")
     try:
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             video_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
