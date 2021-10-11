@@ -12,14 +12,14 @@ def time_to_seconds(time):
     stringt = str(time)
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
-@Client.on_message(filters.command(["s", "song"]))
+@Client.on_message(filters.command(["s", "song", "music"]))
 def a(client, message):
     query = ''
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
     chat_id = message.chat.id
-    m = message.reply('🔎 𝗦𝗲𝗮𝗿𝗰𝗵𝗶𝗻𝗴 𝘁𝗵𝗲 𝗦𝗼𝗻𝗴...')
+    m = message.reply('🔎 `Searching for Songs...`')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = []
