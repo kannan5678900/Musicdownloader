@@ -54,6 +54,7 @@ def a(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
+        ironman = f'🍁 **Tittle** : __{title}__\n🍁 **Channel** : 
         rep = f"🎧 𝗧𝗶𝘁𝘁𝗹𝗲 : [{title[:35]}]({link})\n⏳ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : `{duration}`\n👀 𝗩𝗶𝗲𝘄𝘀 : `{views}`\n\n📮 **By** : [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n📤 𝗕𝘆 : @MusicDownloadv2bot"
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton('Search Inline', switch_inline_query_current_chat='')]])
         secmul, dur, dur_arr = 1, 0, duration.split(':')
