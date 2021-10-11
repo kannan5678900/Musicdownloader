@@ -18,6 +18,7 @@ def a(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
+    chat_id = message.chat.id
     m = message.reply("**Searching for the Video Song 📺...**")
     ydl_opts = {
         "format": "best",
@@ -73,6 +74,7 @@ def a(client, message):
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
+        client.send_chat_action(chat_id, "upload_video")
         message.reply_video(video_file, caption=rep, parse_mode='md',quote=False, duration=dur, reply_markup=buttons, thumb=thumb_name)
         m.delete()
     except Exception as e:
