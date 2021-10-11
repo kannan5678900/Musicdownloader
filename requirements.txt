@@ -7,6 +7,7 @@ aiofiles
 requests
 dnspython
 youtube_dl
+yt_dlp
 ffmpeg-python
 beautifulsoup4==4.9.1
 youtube_search
