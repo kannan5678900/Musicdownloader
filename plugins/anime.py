@@ -103,7 +103,7 @@ async def anime(client, message):
             buttons = [[InlineKeyboardButton("More Info", url=info)]]
         if image:
             try:
-                await client.send_chat_action(chat_id, "upload_photo"
+                await client.send_chat_action(chat_id, "upload_photo")
                 await message.reply_photo(photo=image, caption=msg, reply_markup=InlineKeyboardMarkup(buttons))
             except:
                 msg += f" [〽️]({image})"
