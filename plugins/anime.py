@@ -54,7 +54,8 @@ anime_query = '''
 url = 'https://graphql.anilist.co'
 
 @Client.on_message(filters.command(['anime']))
-async def anime(client, message):
+async def anime(client, message): 
+    chat_id = message.chat.id
     search = message.text.split(" ", 1)
     if len(search) == 1:
         await message.reply("`Give me any Anime name to Search.😊`\n\n`/anime Avengers`")
@@ -102,6 +103,7 @@ async def anime(client, message):
             buttons = [[InlineKeyboardButton("More Info", url=info)]]
         if image:
             try:
+                await client.send_chat_action(chat_id, "upload_photo"
                 await message.reply_photo(photo=image, caption=msg, reply_markup=InlineKeyboardMarkup(buttons))
             except:
                 msg += f" [〽️]({image})"
