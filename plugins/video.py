@@ -20,7 +20,18 @@ def a(client, message):
     print(query)
     chat_id = message.chat.id
     m = message.reply("**📺Searching for the Video Songs...**")
-    ydl_opts = {}
+    ydl_opts = {
+        "format": "best",
+        "addmetadata": True,
+        "key": "FFmpegMetadata",
+        "prefer_ffmpeg": True,
+        "geo_bypass": True,
+        "nocheckcertificate": True,
+        "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
+        "outtmpl": "%(id)s.mp4",
+        "logtostderr": False,
+        "quiet": True,
+    }
     try:
         results = []
         count = 0
