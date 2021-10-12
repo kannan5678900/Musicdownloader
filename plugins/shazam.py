@@ -40,6 +40,7 @@ async def edit_or_reply(message, text, parse_mode="md"):
 
 @Client.on_message(filters.command(["shazam"]))
 async def shazamm(client, message):
+    chat_id = message.chat.id
     thor = await edit_or_reply(message, "`Shazaming In Progress!😑`")
     if not message.reply_to_message:
         await thor.edit("**Reply To Any Audio.**😏😡")
@@ -49,7 +50,7 @@ async def shazamm(client, message):
     kkk = await fetch_audio(client, message)
     downloaded_file_name = kkk
     f = {"file": (downloaded_file_name, open(downloaded_file_name, "rb"))}
-    await thor.edit("**Searching For This Song In Friday's DataBase.**")
+    await thor.edit("**Searching For This Song In Friday's DataBase.**\n__Please Wait..__")
     r = requests.post("https://starkapi.herokuapp.com/shazam/", files=f)
     try:
         xo = r.json()
@@ -75,6 +76,7 @@ async def shazamm(client, message):
 <b>Song By : </b>{by}
 <u><b>Identified By @MusicDownloadv2bot</b>
 """
+    await client.send_chat_action(chat_id, "upload_photo")
     await client.send_photo(message.chat.id, image, messageo, parse_mode="HTML")
     os.remove(downloaded_file_name)
     await thor.delete()
