@@ -19,18 +19,11 @@ def a(client, message):
         query += ' ' + str(i)
     print(query)
     chat_id = message.chat.id
-    m = message.reply("**📺Searching for the Video Songs...**")
+    m = message.reply("**🔎Searching for the Video Songs...**")
     ydl_opts = {
-        "format": "best",
-        "addmetadata": True,
-        "key": "FFmpegMetadata",
-        "prefer_ffmpeg": True,
-        "geo_bypass": True,
-        "nocheckcertificate": True,
-        "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
+        "format": "b[filesize<100M] / w",
+        "preferedformat": "mp4",
         "outtmpl": "%(id)s.mp4",
-        "logtostderr": False,
-        "quiet": True,
     }
     try:
         results = []
@@ -64,7 +57,7 @@ def a(client, message):
         return
     m.edit("__Uploading Your Video....Please Wait__🙏🏻\nPlease don't Spam me![🥺](https://telegra.ph/file/988fecf605d9e2caf0a50.mp4)")
     try:
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             video_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
