@@ -55,7 +55,7 @@ def a(client, message):
         )
         print(str(e))
         return
-    m.edit("__Uploading Your Video....Please Wait__🙏🏻\nPlease don't Spam me![🥺](https://telegra.ph/file/988fecf605d9e2caf0a50.mp4)")
+    m.edit("__Uploading Your Video....Please Wait__🙏🏻\nPlease don't **Spam** me![🥺](https://telegra.ph/file/988fecf605d9e2caf0a50.mp4)")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
