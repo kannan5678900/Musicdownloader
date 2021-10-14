@@ -71,10 +71,10 @@ async def shazamm(client, message):
     image = nt.get("coverarthq")
     by = zzz.get("subtitle")
     title = zzz.get("title")
-    messageo = f"""<u>**Song Shazamed.**</u>
-**Song Name** : `{title}`
-**Song By** : `{by}`
-**Identified By** : @MusicDownloadv2bot
+    messageo = f"""<b>Song Shazamed</b>
+<b>Song Name</b> : <code>{title}</code>
+<b>Song By</b> : <code>{by}</code>
+<b>Identified By</b> : @MusicDownloadv2bot
 """
     await client.send_chat_action(chat_id, "upload_photo")
     await client.send_photo(message.chat.id, image, messageo, parse_mode="HTML")
