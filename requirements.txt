@@ -9,6 +9,8 @@ dnspython
 youtube_dl
 yt_dlp
 gtts
+googletrans==4.0.0rc1
+google-trans-new==1.1.9
 httpx==0.13.3
 ffmpeg-python
 beautifulsoup4==4.9.1
