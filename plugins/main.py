@@ -21,9 +21,11 @@ db = Database(DB_URL, DB_NAME)
 async def cb_handler(bot, update):
     if update.data == "source":
         await update.answer(
-            text="I am Extremely Sorry 😔\nRepo have Some Problems,It will be updated in a month or two.💝",
+            text="I am Extremely Sorry 😔\nThe Repo have Some Problems now,It will be updated in a month or two.💝",
             show_alert=True
         )
+    elif update.data == "close":
+        await update.message.delete()
 
 @Client.on_message(filters.private)
 async def _(bot, cmd):
@@ -91,7 +93,7 @@ async def opensettings(bot, cmd):
                         callback_data="notifon",
                     )
                 ],
-                [InlineKeyboardButton("❎", callback_data="closeMeh")],
+                [InlineKeyboardButton("❎", callback_data="close")],
             ]
         ),
     )
@@ -228,7 +230,7 @@ async def help(client, message):
             [
                 [
                     InlineKeyboardButton('Source', callback_data="source"),
-                    InlineKeyboardButton('Close🚫', callback_data="closeMeh")
+                    InlineKeyboardButton('Close🚫', callback_data="close")
                 ]
             ]
         )
@@ -240,7 +242,7 @@ async def about(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Close🚫', callback_data="closeMeh")
+                    InlineKeyboardButton('Close🚫', callback_data="close")
                 ]
             ]
         )
@@ -289,7 +291,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                             callback_data="notifon",
                         )
                     ],
-                    [InlineKeyboardButton("❎", callback_data="closeMeh")],
+                    [InlineKeyboardButton("❎", callback_data="close")],
                 ]
             ),
         )
