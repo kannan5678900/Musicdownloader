@@ -19,7 +19,7 @@ def a(client, message):
         query += ' ' + str(i)
     print(query)
     chat_id = message.chat.id
-    m = message.reply('🔎 `Searching for Songs...`')
+    m = message.reply('🔎 `Searching for your Song...`')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = []
