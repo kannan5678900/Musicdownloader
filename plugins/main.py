@@ -17,6 +17,13 @@ DB_NAME = config.DB_NAME
 
 db = Database(DB_URL, DB_NAME)
 
+@Client.on_callback_query()
+async def cb_handler(bot, update):
+    if update.data == "source":
+        await update.answer(
+            text="I am Extremely Sorry 😔\nRepo have Some Problems,It will be updated in a month or two.💝",
+            show_alert=True
+        )
 
 @Client.on_message(filters.private)
 async def _(bot, cmd):
@@ -58,8 +65,8 @@ async def startprivate(client, message):
     joinButton = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Developer", url="https://t.me/Peterparker6"),
-                InlineKeyboardButton("Source", url="https://github.com/Avengers105/Music-Bot")
+                InlineKeyboardButton("Developer🤠", url="https://t.me/Peterparker6"),
+                InlineKeyboardButton("Source😪", callback_data="source")
             ],
             [
                 InlineKeyboardButton('Search Inline', switch_inline_query_current_chat='')
@@ -220,7 +227,7 @@ async def help(client, message):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('𝗦𝗼𝘂𝗿𝗰𝗲', url='https://github.com/Avengers105/Music-Bot'),
+                    InlineKeyboardButton('Source', callback_data="source"),
                     InlineKeyboardButton('Close🚫', callback_data="closeMeh")
                 ]
             ]
@@ -229,7 +236,7 @@ async def help(client, message):
 
 @Client.on_message(filters.command(['about']))
 async def about(client, message):
-       await message.reply("➪<b>Name</b> : ✫<i>Music Downloader</i>\n➪<b>Developer</b> : ✫[𝘗𝘦𝘵𝘦𝘳 𝘗𝘢𝘳𝘬𝘦𝘳](https://t.me/Peterparker6)\n➪<b>Language</b> : ✫<i>Python3</i>\n➪<b>Server</b> : ✫[𝘏𝘦𝘳𝘰𝘬𝘶](https://heroku.com/)\n➪<b>Source Code</b> : ✫[𝘊𝘭𝘪𝘤𝘬 𝘏𝘦𝘳𝘦](https://github.com/Avengers105/Music-Bot)",
+       await message.reply("➪<b>Name</b> : ✫<i>Music Downloader</i>\n➪<b>Developer</b> : ✫[𝘗𝘦𝘵𝘦𝘳 𝘗𝘢𝘳𝘬𝘦𝘳](https://t.me/Peterparker6)\n➪<b>Language</b> : ✫<i>Python3</i>\n➪<b>Server</b> : ✫[𝘏𝘦𝘳𝘰𝘬𝘶](https://heroku.com/)\n➪<b>Source Code</b> : ✫[𝘊𝘭𝘪𝘤𝘬 𝘏𝘦𝘳𝘦](https://github.com)",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
