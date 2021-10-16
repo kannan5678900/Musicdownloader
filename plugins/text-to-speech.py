@@ -25,7 +25,7 @@ async def text_to_speech(client, message: Message):
     if not message.reply_to_message.text:
         return await message.reply_text("`This is Not Text Message...`😡")
     chat_id = message.chat.id
-    m = await message.reply_text("`Processing...`")
+    m = await message.reply_text("`Converting to Speech...`")
     text = message.reply_to_message.text
     caption = f"**Identified by** : @Musicdownloadv2bot"
     try:
