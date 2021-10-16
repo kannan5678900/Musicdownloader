@@ -19,9 +19,9 @@ def a(client, message):
         query += ' ' + str(i)
     print(query)
     chat_id = message.chat.id
-    m = message.reply("**🔎Searching for the Video Songs...**")
+    m = message.reply("`🔎Searching for your Video Songs...`")
     ydl_opts = {
-        "format": "b[filesize<100M] / w",
+        "format": "b[filesize<150M] / w",
         "preferedformat": "mp4",
         "outtmpl": "%(id)s.mp4",
     }
