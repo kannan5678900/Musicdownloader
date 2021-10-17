@@ -19,7 +19,7 @@ def a(client, message):
         query += ' ' + str(i)
     print(query)
     chat_id = message.chat.id
-    m = message.reply("`🔎Searching for your Video Songs...`")
+    m = message.reply("`🔎Searching for your Video Song...`")
     ydl_opts = {
         "format": "b[filesize<150M] / w",
         "preferedformat": "mp4",
@@ -71,7 +71,7 @@ def a(client, message):
         message.reply_video(video_file, caption=rep, parse_mode='md',quote=False, duration=dur, reply_markup=buttons, thumb=thumb_name)
         m.delete()
     except Exception as e:
-        m.edit('😔 **Failed**\n\n`Report this Error to` @Peterparker6 🇮🇳')
+        m.edit('😔 **Failed**\n\n`Report this Error to` @Peterparker6 🧑‍💻')
         print(e)
     try:
         os.remove(video_file)
