@@ -15,6 +15,6 @@ httpx==0.13.3
 ffmpeg-python
 beautifulsoup4==4.9.1
 youtube_search
-search_engine_parser
+fake_useragent>=0.1.11
 youtube_search_python
 ffmpeg-normalize
