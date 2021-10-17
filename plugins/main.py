@@ -238,7 +238,7 @@ async def help(client, message):
 
 @Client.on_message(filters.command(['about']))
 async def about(client, message):
-       await message.reply(f"🍁<b>Name</b> : Music Downloader\n\n🧑‍💻<b>Developer</b> : [Peter Parker](https://t.me/Peterparker6)\n\n📝<b>Language</b> : Python3\n\n💎<b>Server</b> : [Heroku](https://heroku.com/)\n\n♎<b>Library</b> : [Pyrogram](https://docs.pyrogram.org/)\n\n⭕<b>Source Code</b> : [🤥Click here](https://github.com)",
+       await message.reply(f"🍁<b>Name</b> : `Music Downloader`\n\n🧑‍💻<b>Developer</b> : [Peter Parker](https://t.me/Peterparker6)\n\n📝<b>Language</b> : `Python3`\n\n💎<b>Server</b> : [Heroku](https://heroku.com/)\n\n♎<b>Library</b> : [Pyrogram](https://docs.pyrogram.org/)\n\n⭕<b>Source Code</b> : [🤥Click here](https://github.com)",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
