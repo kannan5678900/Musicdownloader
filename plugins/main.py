@@ -225,7 +225,7 @@ async def _banned_usrs(c, m):
 
 @Client.on_message(filters.command(['help']))
 async def help(client, message):
-       await message.reply("<u>🌟**Available Commands**</u>\n\n⚡/s - __To Download Audio(MP3) Songs__.\n**Eg:** `/s Faded`\n⚡/v - __To Download Best Video Songs(Under 100Mb)__.\n**Eg:** `/v Faded`\n⚡/shazam - __Try This Command YourSelf🤪__.\n⚡/anime - __To Search Animes__.\n⚡/google - __To Search Google__.",
+       await message.reply("<u>🌟**Available Commands**</u>\n\n⚡/s - __To Download Audio(MP3) Songs__.\n**Eg:** `/s Faded`\n\n⚡/v - __To Download Best Video Songs(Under 100Mb)__.\n**Eg:** `/v Faded`\n\n⚡/shazam - __Try This Command YourSelf🤪__.\n\n⚡/anime - __To Search Animes__.\n\n⚡/google - __To Search Google__.",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
