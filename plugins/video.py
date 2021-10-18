@@ -68,7 +68,7 @@ def a(client, message):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         client.send_chat_action(chat_id, "upload_video")
-        message.reply_video(video_file, caption=rep, parse_mode='md',quote=False, duration=dur, reply_markup=buttons, thumb=thumb_name)
+        message.reply_video(video_file, caption=rep, parse_mode='md',quote=True, duration=dur, reply_markup=buttons, thumb=thumb_name)
         m.delete()
     except Exception as e:
         m.edit('😔 **Failed**\n\n`Report this Error to` @Peterparker6 🧑‍💻')
