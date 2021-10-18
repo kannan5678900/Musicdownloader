@@ -77,6 +77,6 @@ async def shazamm(client, message):
 <b>Identified By</b> : @MusicDownloadv2bot
 """
     await client.send_chat_action(chat_id, "upload_photo")
-    await client.send_photo(message.chat.id, image, messageo, parse_mode="HTML")
+    await client.send_photo(message.chat.id, image, messageo, parse_mode="HTML", quote=True)
     os.remove(downloaded_file_name)
     await thor.delete()
