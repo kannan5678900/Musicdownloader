@@ -32,7 +32,7 @@ async def text_to_speech(client, message: Message):
         loop = get_running_loop()
         audio = await loop.run_in_executor(None, convert, text)
         await client.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(audio, performer='Musicdownloadv2bot', caption=caption)
+        await message.reply_audio(audio, performer='Musicdownloadv2bot', caption=caption, quote=True)
         await m.delete()
         audio.close()
     except Exception as e:
