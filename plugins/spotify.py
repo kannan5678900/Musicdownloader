@@ -16,7 +16,7 @@ def send_spotify_songs(client, message: Message):
     song_link = get_text(message)
     chat_id = message.chat.id
     if not song_link:
-        return msg.edit("**Invalid Format ⛔\nEg** : `/spotify Believer`")
+        return msg.edit("**Invalid Format ⛔\nEg** : `/spotify Believer\n\n/spotify https://open.spotify.com/track/0pqnGHJpmpxLKifKRmU6WP`")
     try:
         download_path = os.getcwd() + "/" + str(uuid.uuid4())
     except Exception as e:
