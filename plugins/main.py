@@ -225,7 +225,7 @@ async def _banned_usrs(c, m):
 
 @Client.on_message(filters.command(['help']))
 async def help(client, message):
-       await message.reply("<u>🌟**Available Commands**</u>\n\n⚡/s - **To Download Audio(MP3) Songs.\nEg:** `/s Faded`\n\n⚡/v - **To Download Best Video Songs(Under 100Mb)__.\nEg:** `/v Faded`\n\n⚡/tts - **To Convert text to Speech**\n\n⚡/shazam - **Try This Command YourSelf🤪**.\n\n⚡/anime - **To Search Animes**.\n\n⚡/google - **To Search Google**.",
+       await message.reply("<u>🌟**Available Commands**</u>\n\n⚡/spotify - **To Download Songs from Spotify 🔥\nEg** : `/spotify Faded`\n\n⚡/s - **To Download Audio(MP3) Songs\nEg:** `/s Believer`\n\n⚡/v - **To Download Best Video Songs(Under 100Mb)\nEg:** `/v Faded`\n\n⚡/tts - **To Convert text to Speech**\n\n⚡/shazam - **Try This Command YourSelf🤪**.\n\n⚡/thumb - **To Download YouTube Thumbnail/nEg** : `/thumb RJ6whMQPY6w`/n/n⚡/anime - **To Search Animes**\n\n⚡/google - **To Search Google**",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -255,8 +255,8 @@ async def ping_pong(client, m: Message):
     copy = await m.reply_text("Pinging...")
     delta_ping = time() - start
     await copy.edit_text(
-        "🍁 `PONG!!`\n"
-        f"🔥 `{delta_ping * 1000:.3f} ms`"
+        "🚫 `PONG!!`\n"
+        f"⛔ `{delta_ping * 1000:.3f} ms`"
     )
 
 @Client.on_message(filters.command("uptime"))
