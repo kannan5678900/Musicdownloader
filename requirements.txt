@@ -20,3 +20,4 @@ youtube_search_python
 ffmpeg-normalize
 ytmusicapi
 spotdl
+ytthumb
