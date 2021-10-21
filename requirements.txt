@@ -18,3 +18,5 @@ youtube_search
 fake_useragent>=0.1.11
 youtube_search_python
 ffmpeg-normalize
+ytmusicapi
+spotdl
