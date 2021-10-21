@@ -20,4 +20,5 @@ youtube_search_python
 ffmpeg-normalize
 ytmusicapi
 spotdl
+rapidfuzz
 ytthumb
