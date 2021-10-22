@@ -19,5 +19,6 @@ def send_songs_from_directory(
     for file in directory:
         if not file.endswith(".mp3"):
             continue
+        client.send_chat_action(chat_id, "upload_audio")
         results = client.send_audio(chat_id,caption=caption,audio=open(f'{directory_path}/{file}', 'rb'))
     subprocess.run(['rm', '-r', directory_path])
