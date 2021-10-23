@@ -71,7 +71,7 @@ def a(client, message):
         message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=thumb_name)
         m.delete()
     except Exception as e:
-        m.edit('😔**Failed**\n\n𝚁𝚎𝚙𝚘𝚛𝚝 𝚃𝚑𝚒𝚜 𝙴𝚛𝚛𝚘𝚛 𝚝𝚘 𝙵𝚒𝚡 @Peterparker6 🧑‍💻')
+        m.edit(f'😔**Failed**\n\n__Report this Error to my [Owner](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
         print(e)
     try:
         os.remove(audio_file)
