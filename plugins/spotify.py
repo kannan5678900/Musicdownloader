@@ -23,7 +23,7 @@ def send_spotify_songs(client, message: Message):
         print(e)
         msg.edit(f'**Found Nothing to your Query :** `{song_link}` ❌')
         return
-    msg.edit(f"`Uploading Your Song From` **Spotify**...`\n**Please Wait for Some Seconds** [😪](https://telegra.ph/file/1773306efae08a9edfa89.png)")
+    msg.edit(f"`Uploading Your Song From` **Spotify...\nPlease Wait for Some Seconds**[😪](https://telegra.ph/file/1773306efae08a9edfa89.png)")
     spotdl.download_from_spotify(download_path, song_link)
     spotdl.send_songs_from_directory(download_path, client, message)
     msg.delete()
