@@ -1,4 +1,5 @@
 import os
+import asyncio
 from time import time
 from datetime import datetime
 from pyrogram import Client
@@ -79,26 +80,6 @@ async def startprivate(client, message):
     await message.reply_text(welcomed, reply_markup=joinButton, quote=True)
     raise StopPropagation
 
-
-@Client.on_message(filters.command("settings"))
-async def opensettings(bot, cmd):
-    user_id = cmd.from_user.id
-    await cmd.reply_text(
-        f"`Here You Can Set Your Settings:`\n\nSuccessfully setted notifications to **{await db.get_notif(user_id)}**",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        f"NOTIFICATION  {'🔔' if ((await db.get_notif(user_id)) is True) else '🔕'}",
-                        callback_data="notifon",
-                    )
-                ],
-                [InlineKeyboardButton("❎", callback_data="close")],
-            ]
-        ),
-    )
-
-
 @Client.on_message(filters.private & filters.command("broadcast"))
 async def broadcast_handler_open(_, m):
     if m.from_user.id not in AUTH_USERS:
@@ -108,7 +89,6 @@ async def broadcast_handler_open(_, m):
         await m.delete()
         return
     await broadcast(m, db)
-
 
 @Client.on_message(filters.private & filters.command("stats"))
 async def sts(c, m):
@@ -248,15 +228,14 @@ async def about(client, message):
         )
    )
 
-
 @Client.on_message(filters.command("ping"))
 async def ping_pong(client, m: Message):
     start = time()
     copy = await m.reply_text("Pinging...")
     delta_ping = time() - start
     await copy.edit_text(
-        "🚫 `PONG!!`\n"
-        f"⛔ `{delta_ping * 1000:.3f} ms`"
+        "🔥 `PONG!!`\n"
+        f"💛 `{delta_ping * 1000:.3f} ms`"
     )
 
 @Client.on_message(filters.command("uptime"))
@@ -265,36 +244,22 @@ async def get_uptime(client, m: Message):
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
     await m.reply_text(
-        "🤖 Bot status:\n"
-        f"• **Uptime:** `{uptime}`\n"
+        "⭕ Bot status:\n\n"
+        f"• **Uptime:** `{uptime}`\n\n"
         f"• **Start time:** `{START_TIME_ISO}`"
     )   
 
-@Client.on_callback_query()
-async def callback_handlers(bot: Client, cb: CallbackQuery):
-    user_id = cb.from_user.id
-    if "closeMeh" in cb.data:
-        await cb.message.delete(True)
-    elif "notifon" in cb.data:
-        notif = await db.get_notif(cb.from_user.id)
-        if notif is True:
-            await db.set_notif(user_id, notif=False)
-        else:
-            await db.set_notif(user_id, notif=True)
-        await cb.message.edit(
-            f"`Here You Can Set Your Settings:`\n\nSuccessfully setted notifications to **{await db.get_notif(user_id)}**",
-            reply_markup=InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            f"NOTIFICATION  {'🔔' if ((await db.get_notif(user_id)) is True) else '🔕'}",
-                            callback_data="notifon",
-                        )
-                    ],
-                    [InlineKeyboardButton("❎", callback_data="close")],
-                ]
-            ),
-        )
-        await cb.answer(
-            f"Successfully setted notifications to {await db.get_notif(user_id)}"
-        )
+@Client.on_message(filters.command("rate"))
+async def rate(client, message):
+       chat_id = message.from_user.id
+       Button = InlineKeyboardMarkup(
+           [[
+           InlineKeyboardButton('Rate Me 🌟', url='https://t.me/tlgrmcbot?start=musicdownloadv2bot-review'),
+           InlineKeyboardButton('❌', callback_data="close")
+           ]]
+       )
+       Message = f"**I am very Happy to Hear That! 🥰\n\nThis will be an inspiration to my master😀\nRate me [Here](https://t.me/tlgrmcbot?start=musicdownloadv2bot-review)**"
+       stick = await client.send_sticker(chat_id, "CAACAgIAAxkBAAEDIhhhc3nFJpcZErvurFbr5RO6TubSnwACSgEAAjDUnRHtmqasW02BTSEE")
+       await message.reply_text(text=Message, reply_markup=Button)
+       await asyncio.sleep(30)
+       await stick.delete()
