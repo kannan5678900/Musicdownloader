@@ -18,6 +18,28 @@ DB_NAME = config.DB_NAME
 
 db = Database(DB_URL, DB_NAME)
 
+# --------------------------------------------------------------------------------------------------------------------------------------
+
+Help_text = """<u>🌟**Available Commands**</u>
+
+⚡/spotify - **To Download Songs from Spotify.🔥\nEg** : `/spotify Faded`
+
+⚡/s - **To Download Audio Songs from YouTube(Fastest method).💞\nEg** : `/s Believer`
+
+⚡/v - **To Download Best Video Songs(Under 100Mb).🎦\nEg** : `/v Believer`
+
+⚡/tts - **To Convert text to Speech.🔊**
+
+⚡/shazam - **To Search about replied Audio.💨**.
+
+⚡/thumb - **To Download YouTube Thumbnail.📂**
+
+⚡/anime - **To Search about Given Animes.🎭**\n`/anime Avengers`
+
+⚡/google - **To Search Given Query Google.🔎**\n`/google Avengers`"""
+
+# -------------------------------------------------------------------------------------------------------------------------------------
+
 @Client.on_callback_query()
 async def cb_handler(bot, update):
     if update.data == "source":
@@ -205,16 +227,8 @@ async def _banned_usrs(c, m):
 
 @Client.on_message(filters.command(['help']))
 async def help(client, message):
-       await message.reply("<u>🌟**Available Commands**</u>\n\n⚡/spotify - **To Download Songs from Spotify 🔥\nEg** : `/spotify Faded`\n\n⚡/s - **To Download Audio(MP3) Songs from YouTube\nEg** : `/s Believer`\n\n⚡/v - **To Download Best Video Songs(Under 100Mb)\nEg** : `/v Faded`\n\n⚡/tts - **To Convert text to Speech**\n\n⚡/shazam - **Try This Command YourSelf🤪**.\n\n⚡/thumb - **To Download YouTube Thumbnail**\n\n⚡/anime - **To Search Animes**\n\n⚡/google - **To Search Google**",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('Source', callback_data="source"),
-                    InlineKeyboardButton('Close🚫', callback_data="close")
-                ]
-            ]
-        )
-    )
+       Help_buttons = InlineKeyboardMarkup([[InlineKeyboardButton('Close❌', callback_data="close")]])
+       await message.reply_text(text=Help_text, reply_markup=Help_buttons, quote=True)
 
 @Client.on_message(filters.command(['about']))
 async def about(client, message):
