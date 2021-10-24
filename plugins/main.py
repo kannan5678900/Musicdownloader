@@ -36,7 +36,7 @@ Help_text = """<u>🌟**Available Commands**</u>
 
 ⚡/anime - **To Search about Given Animes.🎭**\n`/anime Avengers`
 
-⚡/google - **To Search Given Query Google.🔎**\n`/google Avengers`"""
+⚡/google - **To Search Given Query in Google.🔎**\n`/google Avengers`"""
 
 # -------------------------------------------------------------------------------------------------------------------------------------
 
