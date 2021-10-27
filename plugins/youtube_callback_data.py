@@ -9,8 +9,8 @@ from pyrogram.types import(
                           InputMediaVideo,
                           InputMediaAudio)
 
-from helper.ffmfunc import duration
-from helper.ytdlfunc import downloadvideocli, downloadaudiocli
+from handlers.ffmfunc import duration
+from handlers.ytdlfunc import downloadvideocli, downloadaudiocli
 from PIL import Image
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
