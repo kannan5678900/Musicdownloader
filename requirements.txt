@@ -22,6 +22,3 @@ ytmusicapi
 spotdl
 rapidfuzz
 ytthumb
-wget
-pillow
-hachoir
