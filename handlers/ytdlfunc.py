@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 from pyrogram import Client, StopPropagation, filters 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 import yt_dlp
-import youtube_dl
 import ffmpeg
 from utils import humanbytes
 import asyncio
@@ -24,7 +23,7 @@ def create_buttons(quailitylist):
 
 # extract Youtube info
 def extractYt(yturl):
-    ydl = youtube_dl.YoutubeDL()
+    ydl = yt_dlp.YoutubeDL()
     with ydl:
         qualityList = []
         r = ydl.extract_info(yturl, download=False)
