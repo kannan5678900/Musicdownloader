@@ -1,6 +1,6 @@
 import subprocess as sp
 import json
-
+import ffmpeg
 
 def probe(vid_file_path):
     """
@@ -34,13 +34,8 @@ def duration(vid_file_path):
             return float(_json['format']['duration'])
 
     if 'streams' in _json:
-        # commonly stream 0 is the video
         for s in _json['streams']:
             if 'duration' in s:
                 return float(s['duration'])
 
     raise Exception('duration Not found')
-
-
-if __name__ == "__main__":
-    print(duration("examplefile.mp4"))
