@@ -4,6 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from handlers.ytdlfunc import extractYt, create_buttons
 import wget
 import os
+import ffmpeg
 from PIL import Image
 
 from plugins.google import get_text
