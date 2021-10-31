@@ -24,3 +24,4 @@ rapidfuzz
 wget
 pillow
 hachoir
+py-youtube
