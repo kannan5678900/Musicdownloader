@@ -1,5 +1,6 @@
 import asyncio
 import os
+import ffmpeg
 
 from pyrogram import Client, filters, ContinuePropagation
 from pyrogram.types import(
