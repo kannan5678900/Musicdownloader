@@ -44,7 +44,7 @@ def a(client, message):
 
         except Exception as e:
             print(e)
-            m.edit('𝐅𝐨𝐮𝐧𝐝 𝐍𝐨𝐭𝐡𝐢𝐧𝐠. 𝐓𝐫𝐲 𝐂𝐡𝐚𝐧𝐠𝐢𝐧𝐠 𝐓𝐡𝐞 𝐒𝐩𝐞𝐥𝐥𝐢𝐧𝐠 𝐀 𝐋𝐢𝐭𝐭𝐥𝐞 😐\n\n`/s Believer`')
+            m.edit('Found Nothing ❌\nChange the Spelling & Try.\n\n`/s Believer`')
             return
     except Exception as e:
         m.edit(
@@ -71,7 +71,7 @@ def a(client, message):
         message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=thumb_name)
         m.delete()
     except Exception as e:
-        m.edit(f'😔**Failed**\n\n__Report this Error to my [Owner](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
+        m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
         print(e)
     try:
         os.remove(audio_file)
