@@ -21,7 +21,7 @@ def a(client, message):
     chat_id = message.chat.id
     m = message.reply("`🔎Searching for your Video Song...`")
     ydl_opts = {
-        "format": "b[filesize<150M] / w",
+        "format": "b[filesize<200M] / w",
         "preferedformat": "mp4",
         "outtmpl": "%(id)s.mp4",
     }
@@ -47,7 +47,7 @@ def a(client, message):
 
         except Exception as e:
             print(e)
-            m.edit('𝐅𝐨𝐮𝐧𝐝 𝐍𝐨𝐭𝐡𝐢𝐧𝐠. 𝐓𝐫𝐲 𝐂𝐡𝐚𝐧𝐠𝐢𝐧𝐠 𝐓𝐡𝐞 𝐒𝐩𝐞𝐥𝐥𝐢𝐧𝐠 𝐀 𝐋𝐢𝐭𝐭𝐥𝐞 🌝.\n\n`/v Faded`')
+            m.edit('**Found Nothing ❌**\nChange the **Spelling** and Try🌝.\n\n`/v Faded`')
             return
     except Exception as e:
         m.edit(
