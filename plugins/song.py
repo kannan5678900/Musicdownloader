@@ -2,15 +2,10 @@ import os
 import ffmpeg
 import time
 import requests
-import youtube_dl
 import yt_dlp
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
-def time_to_seconds(time):
-    stringt = str(time)
-    return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
 @Client.on_message(filters.command(["s", "song", "music"]))
 def a(client, message):
@@ -44,12 +39,10 @@ def a(client, message):
 
         except Exception as e:
             print(e)
-            m.edit('Found Nothing ❌\nChange the Spelling & Try.\n\n`/s Believer`')
+            m.edit('**Found Nothing** ❌\nChange the **Spelling** & Try.\n\n`/s Believer`')
             return
     except Exception as e:
-        m.edit(
-            "❎ 𝐹𝑜𝑢𝑛𝑑 𝑁𝑜𝑡ℎ𝑖𝑛𝑔. 𝐒𝐨𝐫𝐫𝐲.\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 𝖮𝗋 𝖲𝖾𝖺𝗋𝖼𝗁 𝖺𝗍 Google.com 𝖥𝗈𝗋 𝖢𝗈𝗋𝗋𝖾𝖼𝗍 𝖲𝗉𝖾𝗅𝗅𝗂𝗇𝗀 𝗈𝖿 𝗍𝗁𝖾 𝙎𝙤𝙣𝙜.\n\nEg.`/s Believer`"
-        )
+        m.edit("**Sorry**\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 𝖮𝗋 𝖲𝖾𝖺𝗋𝖼𝗁 𝖺𝗍 Google.com 𝖥𝗈𝗋 𝖢𝗈𝗋𝗋𝖾𝖼𝗍 𝖲𝗉𝖾𝗅𝗅𝗂𝗇𝗀 𝗈𝖿 𝗍𝗁𝖾 **Song**.\n\nEg.`/s Believer`")
         print(str(e))
         return
     m.edit("`Uploading Your Song....Please Wait`🙏\nPlease don't **Spam** me![🥺](https://telegra.ph/file/33e209cb838912e8714c9.mp4)")
