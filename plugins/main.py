@@ -36,6 +36,8 @@ Help_text = """<u>🌟**Available Commands**</u>
 
 ⚡/thumb - **To Download YouTube Thumbnail.📂**
 
+⚡/yts - **To Search Given Query in YouTube**.😋\n`/yts Avengers`
+
 ⚡/anime - **To Search about Given Animes.🎭**\n`/anime Avengers`
 
 ⚡/google - **To Search Given Query in Google.🔎**\n`/google Avengers`"""
