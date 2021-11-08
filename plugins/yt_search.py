@@ -22,7 +22,7 @@ async def yt_search(client, message):
     query = get_text(message)
     if not query:
         return await message.reply_text("`Reply to a message or pass a query to search!`")
-    video_q = await edit_or_reply("`Searching...`")
+    video_q = await message.reply_text("`Searching...`")
     lim = 8
     try:
         full_response = await ytsearch(query, limit=lim)
