@@ -1,8 +1,8 @@
 from pyrogram import Client, filters
+
 from youtubesearchpython import VideosSearch
 
 from plugins.google import get_text
-from plugins.shazam import edit_or_reply
 
 async def ytsearch(query, limit):
     result = ""
@@ -21,9 +21,9 @@ async def ytsearch(query, limit):
 async def yt_search(client, message):
     query = get_text(message)
     if not query:
-        return await message.reply_text("`Reply to a message or pass a query to search!`")
+        return await message.reply_text("`Give me Something to Search in YT!`😇")
     video = await message.reply_text("`Searching...`")
-    lim = 8
+    lim = 10
     try:
         full_response = await ytsearch(query, limit=lim)
     except Exception as e:
