@@ -30,7 +30,7 @@ async def telegraph(client, message):
     msg = await message.reply_text("`processing...`")
     replied = message.reply_to_message
     if not replied:
-        await msg.edit("`Reply to a supported media file...`")
+        await msg.edit("`Please reply to a supported media file...`")
         return
     file_info = get_file_id(replied)
     if not file_info:
