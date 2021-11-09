@@ -27,7 +27,7 @@ async def inline(client: Client, query: InlineQuery):
                     description="{}, {} views.".format(
                         result["duration"],
                         result["viewCount"]["short"]),
-                    publishedtime=result["publishedTime"]
+                    publishedtime=result["publishedTime"])
                     input_message_content=InputTextMessageContent(
                         "https://www.youtube.com/watch?v={}".format(
                             result["id"]
