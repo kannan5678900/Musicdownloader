@@ -16,7 +16,7 @@ def a(client, message):
     chat_id = message.chat.id
     m = message.reply("`🔎Searching for your Video Song...`")
     ydl_opts = {
-        "format": "best",
+        "format": "best/bestaudio",
         "addmetadata": True,
         "key": "FFmpegMetadata",
         "prefer_ffmpeg": True,
