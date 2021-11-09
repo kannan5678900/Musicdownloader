@@ -19,7 +19,7 @@ async def inline(client: Client, query: InlineQuery):
             cache_time=0
         )
     else:
-        search = YoutubeSearch(search_query, limit=50)
+        search = VideosSearch(search_query, limit=50)
 
         for result in search.result()["result"]:
             answers.append(
@@ -27,8 +27,8 @@ async def inline(client: Client, query: InlineQuery):
                     title=result["title"],
                     description="{}, {} views.".format(
                         result["duration"],
-                        result["viewCount"]["short"]
-                    ),
+                        result["viewCount"]["short"]),
+                    publishedtime=result["publishedTime"]
                     input_message_content=InputTextMessageContent(
                         "https://www.youtube.com/watch?v={}".format(
                             result["id"]
