@@ -16,9 +16,16 @@ def a(client, message):
     chat_id = message.chat.id
     m = message.reply("`🔎Searching for your Video Song...`")
     ydl_opts = {
-        "format": "b[filesize<200M] / w",
-        "preferedformat": "mp4",
+        "format": "best",
+        "addmetadata": True,
+        "key": "FFmpegMetadata",
+        "prefer_ffmpeg": True,
+        "geo_bypass": True,
+        "nocheckcertificate": True,
+        "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
         "outtmpl": "%(id)s.mp4",
+        "logtostderr": False,
+        "quiet": True,
     }
     try:
         results = []
