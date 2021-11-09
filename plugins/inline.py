@@ -2,7 +2,6 @@ from pyrogram import Client, errors
 from pyrogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent
 
 from youtubesearchpython import VideosSearch
-from youtube_search import YoutubeSearch
 
 
 @Client.on_inline_query()
