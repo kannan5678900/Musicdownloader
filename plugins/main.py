@@ -282,7 +282,7 @@ async def rate(client, message):
            ]]
        )
        Message = f"**I am very Happy to Hear That! 🥰\n\nThis will be an inspiration to my master😀\nRate me [Here](https://t.me/tlgrmcbot?start=musicdownloadv2bot-review)**"
-       stick = await client.send_sticker(chat_id, "CAACAgIAAxkBAAEDIhhhc3nFJpcZErvurFbr5RO6TubSnwACSgEAAjDUnRHtmqasW02BTSEE")
+       stick = await client.send_sticker(chat_id, "CAACAgIAAxkBAAEDPzFhiqynuojw3jmBjE2d2qnP0IVlKQAC0wEAAladvQqCdf78bYHUECIE")
        await message.reply_text(text=Message, reply_markup=Button)
        await asyncio.sleep(30)
        await stick.delete()
