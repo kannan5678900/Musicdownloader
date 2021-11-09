@@ -6,7 +6,6 @@ TgCrypto
 aiofiles
 requests
 dnspython
-youtube_dl
 yt_dlp
 gtts
 googletrans==4.0.0rc1
@@ -25,3 +24,4 @@ wget
 pillow
 hachoir
 py-youtube
+telegraph
