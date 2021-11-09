@@ -32,6 +32,8 @@ Help_text = """<u>🌟**Available Commands**</u>
 
 ⚡/tts - **To Convert text to Speech.🔊**
 
+⚡/tgm - **To Upload Telegraph Link.🍂**
+
 ⚡/shazam - **To Search about replied Audio.💨**.
 
 ⚡/thumb - **To Download YouTube Thumbnail.📂**
