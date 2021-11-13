@@ -20,5 +20,7 @@ def send_songs_from_directory(
         if not file.endswith(".mp3"):
             continue
         client.send_chat_action(chat_id, "upload_audio")
-        results = client.send_audio(chat_id,caption=caption,audio=open(f'{directory_path}/{file}', 'rb'))
+        client.send_audio(chat_id,caption=caption,audio=open(f'{directory_path}/{file}', 'rb'))
+        client.send_chat_action(chat_id, "typing")
+        client.send_message(chat_id, "If you do not get your requested song, try with its Spotify link!!")
     subprocess.run(['rm', '-r', directory_path])
