@@ -268,7 +268,7 @@ async def get_uptime(client, m: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
-    await message.reply_chat_action("typing")
+    await m.reply_chat_action("typing")
     await m.reply_text(
         "⭕ Bot status:\n\n"
         f"• **Uptime:** `{uptime}`\n\n"
