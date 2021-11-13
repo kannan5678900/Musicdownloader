@@ -46,6 +46,7 @@ async def telegraph(client, message):
     except Exception as document:
         await message.reply_text(text=document)
     else:
+        await message.reply_chat_action("typing")
         await message.reply(f"**Here Is your Telegraph Link**👇\n\nhttps://telegra.ph{response[0]}", disable_web_page_preview=True)
         await msg.delete()
     finally:
