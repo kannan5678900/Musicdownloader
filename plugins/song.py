@@ -15,7 +15,24 @@ def a(client, message):
     print(query)
     chat_id = message.chat.id
     m = message.reply('🔎 `Searching for your Song...`')
-    ydl_opts = {"format": "bestaudio[ext=m4a]"}
+    ydl_opts = {
+            "format": "bestaudio",
+            "addmetadata": True,
+            "key": "FFmpegMetadata",
+            "prefer_ffmpeg": True,
+            "geo_bypass": True,
+            "nocheckcertificate": True,
+            "postprocessors": [
+                {
+                    "key": "FFmpegExtractAudio",
+                    "preferredcodec": "mp3",
+                    "preferredquality": "720",
+                }
+            ],
+            "outtmpl": "%(id)s.mp3",
+            "quiet": True,
+            "logtostderr": False,
+    }
     try:
         results = []
         count = 0
