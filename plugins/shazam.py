@@ -49,7 +49,7 @@ async def shazamm(client, message):
         os.remove("friday.mp3")
     kkk = await fetch_audio(client, message)
     downloaded_file_name = kkk
-    f = {"file": (downloaded_file_name, open(downloaded_file_name, "rb"))}
+    f = f"{"file": (downloaded_file_name, open(downloaded_file_name, "rb"))}"
     await thor.edit("**Searching For This Song In Friday's DataBase.**\n__Please Wait..__")
     r = requests.post("https://starkapi.herokuapp.com/shazam/", files=f)
     try:
