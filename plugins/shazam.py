@@ -49,15 +49,13 @@ async def shazamm(client, message):
         os.remove("friday.mp3")
     kkk = await fetch_audio(client, message)
     downloaded_file_name = kkk
-    f = f"{"file": (downloaded_file_name, open(downloaded_file_name, "rb"))}"
+    f = {"file": (downloaded_file_name, open(downloaded_file_name, "sucess":false))}
     await thor.edit("**Searching For This Song In Friday's DataBase.**\n__Please Wait..__")
     r = requests.post("https://starkapi.herokuapp.com/shazam/", files=f)
     try:
         xo = r.json()
     except JSONDecodeError:
-        await thor.edit(
-            "`Seems Like Our Server Has Some Issues, Please Try Again Later!`"
-        )
+        await thor.edit("`Seems Like Our Server Has Some Issues, Please Try Again Later!`")
         return
     if xo.get("success") is False:
         await thor.edit("`Song Not Found IN Database. Please Try Again.`🥲")
