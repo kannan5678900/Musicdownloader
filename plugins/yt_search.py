@@ -27,7 +27,7 @@ async def yt_search(client, message):
     try:
         full_response = await ytsearch(query, limit=lim)
     except Exception as e:
-        return await message.edit(video, str(e), time=10, parse_mode=format.parse_pre)
+        return await video.edit("Something Went Wrong 😖")
     text = f"**•  Search Query:**\n`{query}`\n\n**•  Results:**\n{full_response}"
     await message.reply_text(text=text)
     await video.delete()
