@@ -25,3 +25,4 @@ pillow
 hachoir
 py-youtube
 telegraph
+shazamio
