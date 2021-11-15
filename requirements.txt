@@ -25,4 +25,4 @@ pillow
 hachoir
 py-youtube
 telegraph
-shazamio
+shazamio==0.0.2
