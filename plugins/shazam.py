@@ -86,6 +86,7 @@ async def voice_handler(client, message):
     await message.reply_photo(
         r['images']['coverarthq'],
         caption=out,
+        quote=True
         reply_markup=reply_markup
     )
     await msg.delete()
