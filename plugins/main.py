@@ -100,7 +100,7 @@ async def startprivate(client, message):
                 InlineKeyboardButton("Source😪", callback_data="source")
             ],
             [
-                InlineKeyboardButton('Search Inline', switch_inline_query_current_chat='')
+                InlineKeyboardButton('Search Inline', switch_inline_query_current_chat=f'yt ')
             ]
         ]
     )
