@@ -100,7 +100,7 @@ async def lyrics(_, message):
         resp = requests.get(f"https://api-tede.herokuapp.com/api/lirik?l={query}").json()
         result = f"{resp['data']}"
         await message.reply_chat_action("typing")
-        await message.reply(result)
+        await message.reply(result, quote=True)
         await msg.delete()
     except Exception:
         await msg.edit("❌ **lyrics not found.\n\nplease give a valid song name.**")
