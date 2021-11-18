@@ -25,7 +25,7 @@ async def yt_search(client, message):
     video = await message.reply_text("`Searching...`")
     lim = 10
     try:
-        full_response = await ytsearch(query, max_results=lim)
+        full_response = await ytsearch(query, limit=lim)
         text = f"**•  Search Query:**\n`{query}`\n\n**•  Results:**\n{full_response}"
         await message.reply_text(text=text)
         await video.delete()
