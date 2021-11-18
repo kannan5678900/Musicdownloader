@@ -6,7 +6,7 @@ from plugins.google import get_text
 
 async def ytsearch(query, limit):
     result = ""
-    videolinks = SearchVideos(query.lower(), limit=limit, offset=1, mode="dict")
+    videolinks = SearchVideos(query.lower(), limit=10, offset=1, mode="dict")
     for v in videolinks.result()["result"]:
         textresult = f"[{v['title']}](https://www.youtube.com/watch?v={v['id']})\n"
         try:
