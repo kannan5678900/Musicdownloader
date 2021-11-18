@@ -17,17 +17,25 @@ async def ytsearch(query, limit):
         result += f"☞ {textresult}\n"
     return result
 
-@Client.on_message(filters.command(["yts"]))
+@Client.on_message(filters.command(["yts", "ytsearch"]))
 async def yt_search(client, message):
     query = get_text(message)
     if not query:
-        return await message.reply_text("`Give me Something to Search in YT!`😇")
-    video = await message.reply_text("`Searching...`")
-    lim = 10
+        return await message.reply_text("`Give me Something to Search in YouTube!`😇")
     try:
-        full_response = await ytsearch(query, limit=lim)
-        text = f"**•  Search Query:**\n`{query}`\n\n**•  Results:**\n{full_response}"
-        await message.reply_text(text=text)
-        await video.delete()
+        msg = await message.reply("🔎")
+        results = YoutubeSearch(query, max_results=10).to_dict()
+        i = 0
+        text = ""
+        while i < 10:
+            text += f"🏷 **Name:** __{results[i]['title']}__\n"
+            text += f"⏱ **Duration:** `{results[i]['duration']}`\n"
+            text += f"👀 **Views:** `{results[i]['views']}`\n"
+            text += f"📣 **Channel:** {results[i]['channel']}\n"
+            text += f"🔗: https://www.youtube.com{results[i]['url_suffix']}\n\n"
+            i += 1
+        await message.reply_chat_action("typing")
+        await message.reply_text(text=text, disable_web_page_preview=True, quote=True)
+        await msg.delete()
     except Exception as e:
-        await video.edit(str(e))
+        await msg.edit(str(e))
