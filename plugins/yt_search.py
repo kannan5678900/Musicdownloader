@@ -14,7 +14,7 @@ async def yt_search(client, message):
         results = YoutubeSearch(query, max_results=10).to_dict()
         i = 0
         text = ""
-        while i < 10:
+        while i < 10:      
             text += f"🍁 **Name:** __{results[i]['title']}__\n"
             text += f"⏱ **Duration:** `{results[i]['duration']}`\n"
             text += f"👀 **Views:** `{results[i]['views']}`\n"
