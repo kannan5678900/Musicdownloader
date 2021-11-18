@@ -88,3 +88,18 @@ def a(client, message):
         os.remove(thumb_name)
     except Exception as e:
         print(e)
+
+@Client.on_message(filters.command(["lyrics"]))
+async def lyrics(_, message):
+    msg = message.reply_text("🔎 **Searching Lyrics....**")
+    try:
+        if len(message.command) < 2:
+            await msg.edit("**Give a lyric name to find.** 😊")
+            return
+        query = message.text.split(None, 1)[1]
+        resp = requests.get(f"https://api-tede.herokuapp.com/api/lirik?l={query}").json()
+        result = f"{resp['data']}"
+        await message.reply_chat_action("typing")
+        await msg.edit(result)
+    except Exception:
+        await msg.edit("❌ **lyrics not found.\n\nplease give a valid song name.**")
