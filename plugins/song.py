@@ -101,5 +101,6 @@ async def lyrics(_, message):
         result = f"{resp['data']}"
         await message.reply_chat_action("typing")
         await message.reply(result)
+        await msg.delete()
     except Exception:
         await msg.edit("❌ **lyrics not found.\n\nplease give a valid song name.**")
