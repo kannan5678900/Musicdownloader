@@ -34,7 +34,9 @@ Help_text = """<u>🌟**Available Commands**</u>
 
 ⚡/tgm - **To Upload Telegraph Link.🍂**
 
-⚡/shazam - **To Search about replied Audio.💨**.
+⚡/shazam - **To Search about replied Audio.💨**
+
+⚡/lyrics - **To Get Song Lyrics.**🎼
 
 ⚡/thumb - **To Download YouTube Thumbnail.📂**
 
