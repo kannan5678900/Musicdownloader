@@ -91,7 +91,7 @@ def a(client, message):
 
 @Client.on_message(filters.command(["lyrics"]))
 async def lyrics(_, message):
-    msg = message.reply_text("🔎 **Searching Lyrics....**")
+    msg = await message.reply_text("🔎 **Searching Lyrics....**")
     try:
         if len(message.command) < 2:
             await msg.edit("**Give a lyric name to find.** 😊")
