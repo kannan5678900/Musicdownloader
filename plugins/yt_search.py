@@ -1,12 +1,12 @@
 from pyrogram import Client, filters
 
-from youtubesearchpython import VideosSearch
+from youtubesearchpython import SearchVideos
 
 from plugins.google import get_text
 
 async def ytsearch(query, limit):
     result = ""
-    videolinks = VideosSearch(query.lower(), limit=limit)
+    videolinks = SearchVideos(query.lower(), limit=limit, offset=1, mode="dict")
     for v in videolinks.result()["result"]:
         textresult = f"[{v['title']}](https://www.youtube.com/watch?v={v['id']})\n"
         try:
