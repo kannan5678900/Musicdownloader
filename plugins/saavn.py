@@ -35,5 +35,6 @@ async def saavn(client, message):
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton('💥 Listen', url=f'{me["perma_url"]}')]])
         os.rename(file, ffile)
         await client.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(audio=ffile, title=song, performer=singer, caption=iron_man, reply_markup=buttons, progress=progress)
+        await message.reply_audio(audio=ffile, title=song, performer=singer, caption=iron_man, reply_markup=buttons)
         await msg.delete()
+        print(song)
