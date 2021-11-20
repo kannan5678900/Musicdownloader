@@ -30,10 +30,10 @@ async def saavn(client, message):
         hidden_url = me['media_url']
         year = me['year']
         file = wget.download(hidden_url)
-        ffile = file.replace(f"{file}", f"{okmusic}.mp3")
-        iron_man = f"**Song Name** : __{okmusic}__\n**Artist** : __{singer}__\n**Duration** : `{hmm}`\n**Lang** : `{langs}`\n**Year** : `{year}`"
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton('Listen Song', url=f'{me["perma_url"]}')]])
+        ffile = file.replace(f"{file}", f"{song}.mp3")
+        iron_man = f"⚡ **Title** : __{song}__\n💫 **Album** : __{album}__\n🗣️ **Artist** : __{singer}__\n⏳ **Duration** : `{dur}`\n📋 **Language** : `{langs}`\n🔮 **Released on** : `{year}`"
+        buttons = InlineKeyboardMarkup([[InlineKeyboardButton('💥 Listen', url=f'{me["permurl"]}')]])
         os.rename(file, ffile)
         await client.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(audio=ffile, title=okmusic, performer=singer, caption=iron_man, reply_markup=buttons, progress=progress)
+        await message.reply_audio(audio=ffile, title=song, performer=singer, caption=iron_man, reply_markup=buttons, progress=progress)
         await msg.delete()
