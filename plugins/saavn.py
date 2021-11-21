@@ -21,6 +21,7 @@ async def saavn(client, message):
     search = f"http://starkmusic.herokuapp.com/result/?query={query}"
     saavn = requests.get(url=search).json()
     try:
+        await msg.edit(f"**Uploading Your Song...**[💥](https://telegra.ph/file/a0cfbfb334914009252b8.png)")
         for me in saavn:
             album = me['album']
             song = me['song']
