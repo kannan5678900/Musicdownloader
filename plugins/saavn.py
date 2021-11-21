@@ -20,21 +20,24 @@ async def saavn(client, message):
         return
     search = f"http://starkmusic.herokuapp.com/result/?query={query}"
     saavn = requests.get(url=search).json()
-    for me in saavn:
-        album = me['album']
-        song = me['song']
-        permurl = me['perma_url']
-        singer = me['singers']
-        dur = me['duration']
-        langs = me['language']
-        hidden_url = me['media_url']
-        year = me['year']
-        file = wget.download(hidden_url)
-        ffile = file.replace(f"{file}", f"{song}.mp3")
-        iron_man = f"⚡ **Title** : __{song}__\n💫 **Album** : __{album}__\n🗣️ **Artist** : __{singer}__\n⏳ **Duration** : `{dur}`\n📋 **Language** : `{langs}`\n🔮 **Released on** : `{year}`"
-        buttons = InlineKeyboardMarkup([[InlineKeyboardButton('💥 Listen', url=f'{me["perma_url"]}')]])
-        os.rename(file, ffile)
-        await client.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(audio=ffile, title=song, performer=singer, caption=iron_man, reply_markup=buttons)
-        await msg.delete()
+    try:
+        for me in saavn:
+            album = me['album']
+            song = me['song']
+            permurl = me['perma_url']
+            singer = me['singers']
+            dur = me['duration']
+            langs = me['language']
+            hidden_url = me['media_url']
+            year = me['year']
+            file = wget.download(hidden_url)
+            ffile = file.replace(f"{file}", f"{song}.mp3")
+            iron_man = f"⚡ **Title** : __{song}__\n💫 **Album** : __{album}__\n🗣️ **Artist** : __{singer}__\n⏳ **Duration** : `{dur}`\n📋 **Language** : `{langs}`\n🔮 **Released on** : `{year}`"
+            buttons = InlineKeyboardMarkup([[InlineKeyboardButton('💥 Listen', url=f'{me["perma_url"]}')]])
+            os.rename(file, ffile)
+            await client.send_chat_action(chat_id, "upload_audio")
+            await message.reply_audio(audio=ffile, title=song, performer=singer, caption=iron_man, reply_markup=buttons)
+            await msg.delete()
+    except Exception:
+        await msg.edit("⚠️ **Currently Not Support Links.\nPlease try again with any other Query**")    
         print(query)
