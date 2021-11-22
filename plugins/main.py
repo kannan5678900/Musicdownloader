@@ -24,27 +24,29 @@ db = Database(DB_URL, DB_NAME)
 
 Help_text = """<u>🌟**Available Commands**</u>
 
-⚡/spotify - **To Download Songs from Spotify.🔥\nEg** : `/spotify Faded`
+🌟/spotify - **To Download Songs from Spotify.🔥\nEg** : `/spotify Faded`
 
-⚡/s - **To Download Audio Songs from YouTube(Fastest method).💞\nEg** : `/s Believer`
+🌟/s - **To Download Audio Songs from YouTube(Fastest method).💞\nEg** : `/s Believer`
 
-⚡/v - **To Download Best Video Songs(Under 100Mb).🎦\nEg** : `/v Believer`
+🌟/v - **To Download Best Video Songs(Under 100Mb).🎦\nEg** : `/v Believer`
 
-⚡/tts - **To Convert text to Speech.🔊**
+🌟/saavn - **To Download Songs from Jiosaavn.🎶\nEg** : `/saavn Verithanam`
 
-⚡/tgm - **To Upload Telegraph Link.🍂**
+🌟/tts - **To Convert text to Speech.🔊**
 
-⚡/shazam - **To Search about replied Audio.💨**
+🌟/tgm - **To Upload Telegraph Link.🍂**
 
-⚡/lyrics - **To Get Song Lyrics.**🎼
+🌟/shazam - **To Search about replied Audio.💨**
 
-⚡/thumb - **To Download YouTube Thumbnail.📂**
+🌟/lyrics - **To Get Song Lyrics.**🎼
 
-⚡/yts - **To Search Given Query in YouTube**.😋\n`/yts Avengers`
+🌟/thumb - **To Download YouTube Thumbnail.📂**
 
-⚡/anime - **To Search about Given Animes.🎭**\n`/anime Avengers`
+🌟/yts - **To Search Given Query in YouTube**.😋\n`/yts Avengers`
 
-⚡/google - **To Search Given Query in Google.🔎**\n`/google Avengers`"""
+🌟/anime - **To Search about Given Animes.🎭**\n`/anime Avengers`
+
+🌟/google - **To Search Given Query in Google.🔎**\n`/google Avengers`"""
 
 # -------------------------------------------------------------------------------------------------------------------------------------
 
