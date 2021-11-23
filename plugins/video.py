@@ -16,14 +16,14 @@ def a(client, message):
     chat_id = message.chat.id
     m = message.reply("`🔎Searching for your Video Song...`")
     ydl_opts = {
-        "format": "best/bestaudio",
+        "format": "best/bestaudio+bestvideo",
         "addmetadata": True,
         "key": "FFmpegMetadata",
         "prefer_ffmpeg": True,
         "geo_bypass": True,
         "nocheckcertificate": True,
         "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
-        "outtmpl": "%(id)s.mp4",
+        "outtmpl": "%(alt_title)s.mp4",
         "logtostderr": False,
         "quiet": True,
     }
@@ -61,7 +61,7 @@ def a(client, message):
             info_dict = ydl.extract_info(link, download=False)
             video_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"🎧 𝗧𝗶𝘁𝘁𝗹𝗲 : [{title[:35]}]({link})\n⏳ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : `{duration}`\n👀 𝗩𝗶𝗲𝘄𝘀 : `{views}`\n🍁**Channel** : `{thor}`\n⭕ **Requested For** : `{query}`\n\n📬 **By** : [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n📤 𝗕𝘆 : @MusicDownloadv2bot"
+        rep = f"🎧 𝗧𝗶𝘁𝘁𝗹𝗲 : [{title[:35]}]({link})\n⏳ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : `{duration}`\n👀 𝗩𝗶𝗲𝘄𝘀 : `{views}`\n🍁**Channel** : `{thor}`\n⭕ **Requested For** : `{query}`\n\n📬 **By** : [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n📤 𝗕𝘆 : [Music Downloader 🎶](https://t.me/MusicDownloadv2bot)"
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton('Search Inline', switch_inline_query_current_chat=f'yt ')]])
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
