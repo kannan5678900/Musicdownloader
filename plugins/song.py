@@ -26,10 +26,10 @@ def a(client, message):
                 {
                     "key": "FFmpegExtractAudio",
                     "preferredcodec": "mp3",
-                    "preferredquality": "720",
+                    "preferredquality": "320",
                 }
             ],
-            "outtmpl": "%(title)s.mp3",
+            "outtmpl": "%(alt_title)s.mp3",
             "quiet": True,
             "logtostderr": False,
     }
