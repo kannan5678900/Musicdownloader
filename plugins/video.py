@@ -23,7 +23,7 @@ def a(client, message):
         "geo_bypass": True,
         "nocheckcertificate": True,
         "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
-        "outtmpl": "%(alt_title)s.mp4",
+        "outtmpl": "%(title)s.mp4",
         "logtostderr": False,
         "quiet": True,
     }
