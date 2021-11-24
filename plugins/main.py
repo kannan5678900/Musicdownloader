@@ -104,12 +104,12 @@ async def startprivate(client, message):
                 InlineKeyboardButton("Source😪", callback_data="source")
             ],
             [
-                InlineKeyboardButton('Search Inline', switch_inline_query_current_chat=f'yt ')
+                InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=f'yt ')
             ]
         ]
     )
     sticker = await client.send_sticker(chat_id, "CAACAgIAAxkBAAEDKoVheSlcqbEDq52yuEH2TqqiPe0ROgACNQEAAjDUnRG0uDX9ZqC2fCEE")
-    welcomed = f"👋 𝗛𝗲𝗹𝗹𝗼 **{message.from_user.mention()}**\n\nɪ ᴀᴍ ᴀ ᴀᴅᴠᴀɴᴄᴇᴅ ᴍᴜsɪᴄ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴡɪᴛʜ ᴍᴀɴʏ ᴀᴅᴅɪᴛɪᴏɴᴀʟ ꜰᴇᴀᴛᴜʀᴇs [🤩](https://telegra.ph/file/92a1f08c6ca91e0e8c163.mp4)\n\n𝑺𝒆𝒏𝒕 𝒕𝒉𝒆 𝑵𝒂𝒎𝒆 𝒐𝒇 𝒕𝒉𝒆 𝐒𝐨𝐧𝐠 𝒀𝒐𝒖 𝑾𝒂𝒏𝒕...🤗\n\n<b>I also Download Songs from Spotify and Support Video Songs.</b>\n\n<i>Check</i> /help <i>For More info.</i>"
+    welcomed = f"ʜᴇʟʟᴏ **{message.from_user.mention()}** 👋\n\nɪ ᴀᴍ ᴀ ᴀᴅᴠᴀɴᴄᴇᴅ ᴍᴜsɪᴄ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴡɪᴛʜ ᴍᴀɴʏ ᴀᴅᴅɪᴛɪᴏɴᴀʟ ꜰᴇᴀᴛᴜʀᴇs [🤩](https://telegra.ph/file/92a1f08c6ca91e0e8c163.mp4)\n\n𝑺𝒆𝒏𝒕 𝒕𝒉𝒆 𝑵𝒂𝒎𝒆 𝒐𝒇 𝒕𝒉𝒆 𝐒𝐨𝐧𝐠 𝒀𝒐𝒖 𝑾𝒂𝒏𝒕...🤗\n\n<b>I also Download Songs from Spotify and Support Video Songs.</b>\n\n<i>Check</i> /help <i>For More info.</i>"
     await message.reply_chat_action("typing")
     await message.reply_text(welcomed, reply_markup=joinButton, quote=True)
     await asyncio.sleep(60)
@@ -241,7 +241,7 @@ async def _banned_usrs(c, m):
 
 @Client.on_message(filters.command(['help']))
 async def help(client, message):
-       Help_buttons = InlineKeyboardMarkup([[InlineKeyboardButton('Close❌', callback_data="close")]])
+       Help_buttons = InlineKeyboardMarkup([[InlineKeyboardButton('Close ❌', callback_data="close")]])
        await message.reply_chat_action("typing")
        await message.reply_text(text=Help_text, reply_markup=Help_buttons, quote=True)
 
