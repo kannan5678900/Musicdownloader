@@ -61,6 +61,7 @@ async def get_artist_tracks(self, artist_id: int):
 @Client.on_message(filters.command("shazam"))
 async def voice_handler(client, message):
     msg = await message.reply("`Processing.. please wait for some Seconds...`")
+    chat_id = message.chat.id
     hello = message.reply_to_message
     if not hello:
         await msg.edit("**Please reply to Supported Media.** 😁")
@@ -82,7 +83,7 @@ async def voice_handler(client, message):
                 [InlineKeyboardButton('📲 𝗦𝗵𝗮𝗿𝗲', url=f'{r["share"]["html"]}')]
     ])
     reply_markup = InlineKeyboardMarkup(buttons)
-    await message.reply_chat_action("upload_photo")
+    await client.send_chat_action(chat_id, "upload_photo")
     await message.reply_photo(
         r['images']['coverarthq'],
         caption=out,
