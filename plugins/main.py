@@ -108,7 +108,7 @@ async def startprivate(client, message):
             ]
         ]
     )
-    welcomed = f"ʜᴇʟʟᴏ **{message.from_user.mention()}** 👋\n\nɪ ᴀᴍ ᴀ ᴀᴅᴠᴀɴᴄᴇᴅ ᴍᴜsɪᴄ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴡɪᴛʜ ᴍᴀɴʏ ᴀᴅᴅɪᴛɪᴏɴᴀʟ ꜰᴇᴀᴛᴜʀᴇs [🤩](https://telegra.ph/file/92a1f08c6ca91e0e8c163.mp4)\n\n𝑺𝒆𝒏𝒕 𝒕𝒉𝒆 𝑵𝒂𝒎𝒆 𝒐𝒇 𝒕𝒉𝒆 𝐒𝐨𝐧𝐠 𝒀𝒐𝒖 𝑾𝒂𝒏𝒕...🤗\n\n<b>I also Download Songs from Spotify and Support Video Songs.</b>\n\n<i>Check</i> /help <i>For More info.</i>"
+    welcomed = f"ʜᴇʟʟᴏ **{message.from_user.mention()}** 👋\n\nɪ ᴀᴍ ᴀ ᴀᴅᴠᴀɴᴄᴇᴅ ᴍᴜsɪᴄ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ᴡɪᴛʜ ᴍᴀɴʏ ᴀᴅᴅɪᴛɪᴏɴᴀʟ ꜰᴇᴀᴛᴜʀᴇs [🤩](https://telegra.ph/file/92a1f08c6ca91e0e8c163.mp4)\n\n♥️ ɪ ᴄᴀɴ ᴅᴏᴡɴʟᴏᴀᴅ sᴏɴɢs ꜰʀᴏᴍ sᴘᴏᴛɪꜰʏ, ᴊɪᴏsᴀᴀᴠɴ, ʏᴏᴜᴛᴜʙᴇ, ᴇᴛᴄ..\n\nᴄʜᴇᴄᴋ /help ᴛᴏ sᴇᴇ ᴍʏ ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs 🥴"
     await message.reply_chat_action("typing")
     await message.reply_text(welcomed, reply_markup=joinButton, quote=True)
     raise StopPropagation
