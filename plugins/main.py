@@ -100,8 +100,8 @@ async def startprivate(client, message):
     joinButton = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("Developer🤠", url="https://t.me/Peterparker6"),
-                InlineKeyboardButton("Source😪", callback_data="source")
+                InlineKeyboardButton("Developer 🤠", url="https://t.me/Peterparker6"),
+                InlineKeyboardButton("Source 😪", callback_data="source")
             ],
             [
                 InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=f'yt ')
@@ -238,17 +238,17 @@ async def _banned_usrs(c, m):
 
 @Client.on_message(filters.command(['help']))
 async def help(client, message):
-       Help_buttons = InlineKeyboardMarkup([[InlineKeyboardButton('Close ❌', callback_data="close")]])
+       Help_buttons = InlineKeyboardMarkup([[InlineKeyboardButton('𝗖𝗹𝗼𝘀𝗲 ❌', callback_data="close")]])
        await message.reply_chat_action("typing")
        await message.reply_text(text=Help_text, reply_markup=Help_buttons, quote=True)
 
 @Client.on_message(filters.command(['about']))
 async def about(client, message):
-       await message.reply(f"🍁<b>Name</b> : `Music Downloader`\n\n🧑‍💻<b>Developer</b> : [Peter Parker](https://t.me/Peterparker6)\n\n📝<b>Language</b> : `Python3`\n\n💎<b>Server</b> : [Heroku](https://heroku.com/)\n\n♎<b>Library</b> : [Pyrogram](https://docs.pyrogram.org/)\n\n💨<b>Build Stats</b> : `V4.0 [Stable]`\n\n⭕<b>Source Code</b> : [🤥Click here](https://github.com)",
+       await message.reply(f"🍁 ɴᴀᴍᴇ : `Music Downloader`\n\n🧑‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ : [Peter Parker](https://t.me/Peterparker6)\n\n📝 ʟᴀɴɢᴜᴀɢᴇ : `Python3`\n\n💎 sᴇʀᴠᴇʀ : [Heroku](https://heroku.com/)\n\n💮 ʟɪʙʀᴀʀʏ : [Pyrogram](https://docs.pyrogram.org/)\n\n💨 ʙᴜɪʟᴅ sᴛᴀᴛs : `V4.0 [Beta]`\n\n⭕ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : [🤥Click here](https://github.com)",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Close🚫', callback_data="close")
+                    InlineKeyboardButton('𝗖𝗹𝗼𝘀𝗲 🚫', callback_data="close")
                 ]
             ]
         )
@@ -281,13 +281,10 @@ async def rate(client, message):
        chat_id = message.from_user.id
        Button = InlineKeyboardMarkup(
            [[
-           InlineKeyboardButton('Rate Me 🌟', url='https://t.me/tlgrmcbot?start=musicdownloadv2bot-review'),
-           InlineKeyboardButton('❌', callback_data="close")
+           InlineKeyboardButton('𝗥𝗮𝘁𝗲 𝗺𝗲 🌟', url='https://t.me/tlgrmcbot?start=musicdownloadv2bot-review'),
+           InlineKeyboardButton('𝗖𝗹𝗼𝘀𝗲 ❌', callback_data="close")
            ]]
        )
        Message = f"**{message.from_user.mention()}**,__I am very Happy to Hear That! 🥰\n\nThis will be an inspiration to my master😀\nRate me [Here](https://t.me/tlgrmcbot?start=musicdownloadv2bot-review)__"
-       stick = await client.send_sticker(chat_id, "CAACAgIAAxkBAAEDPzFhiqynuojw3jmBjE2d2qnP0IVlKQAC0wEAAladvQqCdf78bYHUECIE")
        await message.reply_chat_action("typing")
        await message.reply_text(text=Message, reply_markup=Button)
-       await asyncio.sleep(30)
-       await stick.delete()
