@@ -27,5 +27,6 @@ def send_spotify_songs(client, message: Message):
     spotdl.download_from_spotify(download_path, song_link)
     spotdl.send_songs_from_directory(download_path, client, message)
     msg.delete()
+    print(song_link)
     es = traceback.format_exc()
     print(es)
