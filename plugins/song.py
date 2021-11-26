@@ -89,7 +89,7 @@ def a(client, message):
     except Exception as e:
         print(e)
 
-@Client.on_message(filters.command(["lyrics"]))
+@Client.on_message(filters.command(["lyrics", "lyric"]))
 async def lyrics(_, message):
     msg = await message.reply_text("🔎 **Searching Lyrics....**")
     try:
@@ -97,8 +97,8 @@ async def lyrics(_, message):
             await msg.edit("**Give a lyric name to find.** 😊")
             return
         query = message.text.split(None, 1)[1]
-        resp = requests.get(f"https://api-tede.herokuapp.com/api/lirik?l={query}").json()
-        result = f"{resp['data']}"
+        resp = requests.get(f"https://apis.xditya.me/lyrics?song={query}").json()
+        result = f"`{resp['lyrics']}`"
         await message.reply_chat_action("typing")
         await message.reply(result, quote=True)
         await msg.delete()
