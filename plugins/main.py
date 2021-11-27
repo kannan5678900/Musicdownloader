@@ -58,7 +58,12 @@ async def cb_handler(bot, update):
             show_alert=True
         )
     elif update.data == "close":
-        await update.message.delete()
+        await update.message.delete(True)
+        try:
+            await update.message.reply_to_message.delete(True)
+        except BaseException:
+            pass
+
 
 @Client.on_message(filters.private)
 async def _(bot, cmd):
@@ -287,4 +292,4 @@ async def rate(client, message):
        )
        Message = f"**{message.from_user.mention()}**,__I am very Happy to Hear That! 🥰\n\nThis will be an inspiration to my master😀\nRate me [Here](https://t.me/tlgrmcbot?start=musicdownloadv2bot-review)__"
        await message.reply_chat_action("typing")
-       await message.reply_text(text=Message, reply_markup=Button)
+       await message.reply_text(text=Message, reply_markup=Button, quote=True)
