@@ -50,6 +50,24 @@ Help_text = """<u>🌟**Available Commands**</u>
 
 # -------------------------------------------------------------------------------------------------------------------------------------
 
+About_text = """<u>**About Me 😎**</u>
+
+🍁 ɴᴀᴍᴇ : `Music Downloader`
+
+🧑‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ : [Peter Parker](https://t.me/Peterparker6)
+
+📝 ʟᴀɴɢᴜᴀɢᴇ : `Python3`
+
+💎 sᴇʀᴠᴇʀ : [Heroku](https://heroku.com/)
+
+💮 ʟɪʙʀᴀʀʏ : [Pyrogram](https://docs.pyrogram.org/)
+
+💨 ʙᴜɪʟᴅ sᴛᴀᴛs : `V4.1 [Beta]`
+
+⭕ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : [🤥Click here](https://github.com)"""
+
+# ----------------------;-----------;;;;;-------------------------------_--------------
+
 @Client.on_callback_query()
 async def cb_handler(bot, update):
     if update.data == "source":
@@ -249,18 +267,12 @@ async def help(client, message):
 
 @Client.on_message(filters.command(['about']))
 async def about(client, message):
-       await message.reply(f"🍁 ɴᴀᴍᴇ : `Music Downloader`\n\n🧑‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ : [Peter Parker](https://t.me/Peterparker6)\n\n📝 ʟᴀɴɢᴜᴀɢᴇ : `Python3`\n\n💎 sᴇʀᴠᴇʀ : [Heroku](https://heroku.com/)\n\n💮 ʟɪʙʀᴀʀʏ : [Pyrogram](https://docs.pyrogram.org/)\n\n💨 ʙᴜɪʟᴅ sᴛᴀᴛs : `V4.0 [Beta]`\n\n⭕ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : [🤥Click here](https://github.com)",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('𝗖𝗹𝗼𝘀𝗲 🚫', callback_data="close")
-                ]
-            ]
-        )
-   )
+       About_buttons = InlineKeyboardMarkup([[InlineKeyboardButton('𝗖𝗹𝗼𝘀𝗲 ❌', callback_data="close")]])
+       await message.reply_chat_action("typing")
+       await message.reply_text(text=About_text, reply_markup=About_buttons, quote=True)
 
 @Client.on_message(filters.command("ping"))
-async def ping_pong(client, m: Message):
+async def ping_pong(client, m: Message): 
     start = time()
     copy = await m.reply_text("Pinging...")
     delta_ping = time() - start
