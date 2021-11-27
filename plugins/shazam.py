@@ -79,7 +79,7 @@ async def voice_handler(client, message):
         return
     out = f'**🎵 Song Name** : `{r["title"]}`\n'
     out += f'**🗣️ Artist** : `{r["subtitle"]}`\n'
-    buttons = ikb(
+    buttons = (
           [
               [
                   InlineKeyboardButton('🎧 𝗟𝗶𝘀𝘁𝗲𝗻', url=f'{r["url"]}'),
