@@ -1,4 +1,5 @@
 from pyrogram import Client, filters, types
+from pyrogram.types import CallbackQuery
 import os
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from shazamio import Shazam, exceptions, FactoryArtist, FactoryTrack
@@ -85,7 +86,7 @@ async def voice_handler(client, message):
                   InlineKeyboardButton('📲 𝗦𝗵𝗮𝗿𝗲', url=f'{r["share"]["html"]}'),
               ],
               [
-                  InlineKeyboardButton('🛑 Close', callback_data="close"),
+                  InlineKeyboardButton('🛑 Close', callback_data="delete"),
               ],
           ]
     )                  
@@ -98,3 +99,12 @@ async def voice_handler(client, message):
         reply_markup=reply_markup
     )
     await msg.delete()
+
+@Client.on_callback_query()
+async def cb_handler(bot, update):
+    if update.data == "delete":
+        await update.message.delete(True)
+        try:
+            await update.message.reply_to_message.delete(True)
+        except BaseException:
+            pass
