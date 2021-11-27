@@ -78,10 +78,17 @@ async def voice_handler(client, message):
         return
     out = f'**🎵 Song Name** : `{r["title"]}`\n'
     out += f'**🗣️ Artist** : `{r["subtitle"]}`\n'
-    buttons = buttons = ([
-                [InlineKeyboardButton('🎧 𝗟𝗶𝘀𝘁𝗲𝗻', url=f'{r["url"]}')],
-                [InlineKeyboardButton('📲 𝗦𝗵𝗮𝗿𝗲', url=f'{r["share"]["html"]}')]
-    ])
+    buttons = ikb(
+          [
+              [
+                  InlineKeyboardButton('🎧 𝗟𝗶𝘀𝘁𝗲𝗻', url=f'{r["url"]}'),
+                  InlineKeyboardButton('📲 𝗦𝗵𝗮𝗿𝗲', url=f'{r["share"]["html"]}'),
+              ],
+              [
+                  InlineKeyboardButton('🛑 Close', callback_data="close"),
+              ],
+          ]
+    )                  
     reply_markup = InlineKeyboardMarkup(buttons)
     await client.send_chat_action(chat_id, "upload_photo")
     await message.reply_photo(
