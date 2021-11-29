@@ -231,7 +231,7 @@ async def inline_func(client, query):
             title = me['song']
             singer = me['singers']
             dur = me['duration']
-            lang = okz['language']
+            lang = me['language']
             caption = f"Singer : {singer} \nDuration : {dur} \nLanguage = {lang}"
             xxx = f'/saavn {title}'
             answers.append(
