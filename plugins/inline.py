@@ -213,3 +213,32 @@ async def inline_func(client, query):
                 switch_pm_text="Error: Search timed out",
                 switch_pm_parameter="",
             )
+
+    elif string.split()[0] == "sg":
+        if len(string.split()) == 1:
+            await client.answer_inline_query(
+                query.id,
+                results=answers,
+                switch_pm_text="Type a song name...",
+                switch_pm_parameter="about",
+                cache_time=0
+            )
+            return
+        query = urllib.parse.quote_plus(string)
+        song = f"http://starkmusic.herokuapp.com/result/?query={query}"
+        hi = requests.get(url=song).json()
+        for me in hi:
+            title = me['song']
+            singer = me['singers']
+            dur = me['duration']
+            lang = okz['language']
+            caption = f"Singer : {singer} \nDuration : {dur} \nLanguage = {lang}"
+            xxx = f'/saavn {title}'
+            answers.append(
+                InlineQueryResultArticle(
+                    title=title,
+                    description=caption,
+                    input_message_content=InputTextMessageContent(
+                      message_text=xxx)
+              )
+         )
