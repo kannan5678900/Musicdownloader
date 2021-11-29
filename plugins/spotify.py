@@ -26,8 +26,8 @@ def send_spotify_songs(client, message: Message):
             msg.delete()
             print(song_link)
         except Exception as e:
-        msg.edit('😔 𝙵𝚊𝚒𝚕𝚎𝚍\n\n𝚁𝚎𝚙𝚘𝚛𝚝 𝚃𝚑𝚒𝚜 𝙴𝚛𝚛𝚘𝚛 𝚝𝚘 𝙵𝚒𝚡 @Peterparker6 🧡')
-        print(e)
+            msg.edit('😔 𝙵𝚊𝚒𝚕𝚎𝚍\n\n𝚁𝚎𝚙𝚘𝚛𝚝 𝚃𝚑𝚒𝚜 𝙴𝚛𝚛𝚘𝚛 𝚝𝚘 𝙵𝚒𝚡 @Peterparker6 🧡')
+            print(e)
     except Exception as e:
         msg.edit(f'Failed to download your **Query** - {song_link}')
         print(e)
