@@ -31,4 +31,3 @@ def send_spotify_songs(client, message: Message):
     except Exception as e:
         msg.edit(f'Failed to download your **Query** - {song_link}')
         print(e)
-  
