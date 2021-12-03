@@ -39,6 +39,6 @@ async def saavn(client, message):
             await client.send_chat_action(chat_id, "upload_audio")
             await message.reply_audio(audio=ffile, title=song, performer=singer, caption=iron_man, reply_markup=buttons, quote=True)
             await msg.delete()
-    except Exception:
+    except Exception as e:
         await msg.edit("⚠️ **Currently Not Support Links.\nPlease try again with any other Query**")    
-        print(query)
+        print(e)
