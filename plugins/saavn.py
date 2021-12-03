@@ -19,7 +19,7 @@ async def saavn(client, message):
         await msg.edit("**Invalid Syntax\nTry :** `/saavn Verithanam`")
         return
     search = f"http://starkmusic.herokuapp.com/result/?query={query}"
-    saavn = requests.get(search, allow_redirects=False)
+    saavn = requests.get(search, allow_redirects=False).json()
     try:
         await msg.edit(f"**Uploading Your Song...**[💥](https://telegra.ph/file/a0cfbfb334914009252b8.png)")
         for me in saavn:
