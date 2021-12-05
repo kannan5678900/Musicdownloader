@@ -53,7 +53,6 @@ async def catch_youtube_dldata(c, q):
         width = 0
         height = 0
         metadata = extractMetadata(createParser(thumb_image_path))
-        #print(metadata)
         if metadata.has("width"):
             width = metadata.get("width")
         if metadata.has("height"):
@@ -64,7 +63,6 @@ async def catch_youtube_dldata(c, q):
         else:
             img.resize((90, height))
         img.save(thumb_image_path, "JPEG")
-     #   print(thumb_image_path)
     if not cb_data.startswith(("video", "audio", "docaudio", "docvideo")):
         print("no data found")
         raise ContinuePropagation
@@ -77,10 +75,9 @@ async def catch_youtube_dldata(c, q):
     await q.edit_message_reply_markup(
         InlineKeyboardMarkup([[InlineKeyboardButton("Downloading...", callback_data="down")]]))
     filepath = os.path.join(userdir, filext)
-    # await q.edit_message_reply_markup([[InlineKeyboardButton("Processing..")]])
 
     audio_command = [
-        "youtube-dl",
+        "yt-dlp",
         "-c",
         "--prefer-ffmpeg",
         "--extract-audio",
@@ -92,7 +89,7 @@ async def catch_youtube_dldata(c, q):
     ]
 
     video_command = [
-        "youtube-dl",
+        "yt-dlp",
         "-c",
         "--embed-subs",
         "-f", f"{format_id}+bestaudio",
@@ -152,7 +149,6 @@ async def send_file(c, q, med, filename):
         await q.edit_message_reply_markup(
             InlineKeyboardMarkup([[InlineKeyboardButton("Uploading...", callback_data="down")]]))
         await c.send_chat_action(chat_id=q.message.chat.id, action="upload_document")
-        # this one is not working
         await q.edit_message_media(media=med)
     except Exception as e:
         print(e)
