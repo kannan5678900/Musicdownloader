@@ -47,7 +47,8 @@ async def telegraph(client, message):
         await message.reply_text(text=document)
     else:
         await message.reply_chat_action("typing")
-        await message.reply(f"**Here Is your Telegraph Link**👇\n\nhttps://telegra.ph{response[0]}", disable_web_page_preview=True)
+        text = f"**Here Is your Telegraph Link**👇\n\nhttps://telegra.ph{response[0]}" 
+        await message.reply_text(text=text, disable_web_page_preview=True, quote=True)
         await msg.delete()
     finally:
         shutil.rmtree(t, ignore_errors=True)
