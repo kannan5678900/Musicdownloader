@@ -26,9 +26,9 @@ Help_text = """<u>🌟**Available Commands**</u>
 
 🌟 /spotify - **To Download Songs from Spotify.🔥\nEg** : `/spotify Faded`
 
-🌟 /s - **To Download Audio Songs from YouTube(Fastest method).💞\nEg** : `/s Believer`
+🌟 /s - **To download audio dongs from YouTube (Fastest method).💞\nEg** : `/s Believer`
 
-🌟 /v - **To Download Best Video Songs(Under 100Mb).🎦\nEg** : `/v Believer`
+🌟 /v - **To download best Quality videos.🎦\nEg** : `/v Believer`
 
 🌟 /saavn - **To Download Songs from Jiosaavn.🎶\nEg** : `/saavn Verithanam`
 
