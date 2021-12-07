@@ -228,8 +228,7 @@ async def inline_func(client, query):
         hel = string.split(None, 1)[1]
         song = f"http://starkmusic.herokuapp.com/result/?query={hel}"
         hi = requests.get(url=song).json()
-        realme = hi.result()
-        for me in realme:
+        for me in hi:
             title = me['song']
             singer = me['singers']
             dur = me['duration']
