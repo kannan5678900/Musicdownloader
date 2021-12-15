@@ -10,7 +10,7 @@ from plugins.google import get_text
 def progress(current, total):
     print(f"{current * 100 / total:.1f}%")
 
-@Client.on_message(filters.command("saavn"))
+@Client.on_message(filters.command("saavn", "jio"))
 async def saavn(client, message):
     msg = await message.reply_text("`Downloading...`")
     chat_id = message.chat.id
@@ -41,5 +41,5 @@ async def saavn(client, message):
             await msg.delete()
             print(query)
     except Exception as e:
-        await msg.edit("⚠️ **Currently Not Support Links.\nPlease try again with any other Query**")    
+        await msg.edit("⚠️ **Something went wrong.please try again**")    
         print(e)
