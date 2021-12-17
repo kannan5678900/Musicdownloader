@@ -5,7 +5,9 @@ import wget
 import asyncio
 import io
 import os
+import time
 
+from plugins.google import get_text
 
 @Client.on_message(filters.command(["deezer", "dsong"]))
 async def deezer(client, message: Message):
