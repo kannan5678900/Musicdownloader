@@ -8,7 +8,7 @@ trans = Translator()
 async def translate(_, message: Message) -> None:
     reply_msg = message.reply_to_message
     if not reply_msg:
-        await message.reply_text("Reply to a message to translate it!")
+        await message.reply_text("**Please reply to a message to translate it!** 😊")
         return
     if reply_msg.caption:
         to_translate = reply_msg.caption
