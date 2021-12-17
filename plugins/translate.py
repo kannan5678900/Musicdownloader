@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from googletrans import Translator
+from gpytranslate import Translator
 
 trans = Translator()
 
@@ -23,7 +23,7 @@ async def translate(_, message: Message) -> None:
             source = await trans.detect(to_translate)
             dest = args
     except IndexError:
-        source = trans.detect(to_translate)
+        source = await trans.detect(to_translate)
         dest = "id"
     translation = await trans(to_translate, sourcelang=source, targetlang=dest)
     reply = (
