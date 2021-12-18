@@ -28,7 +28,7 @@ async def translate(_, message: Message) -> None:
     translation = await trans(to_translate, sourcelang=source, targetlang=dest)
     reply = (
         f"👉 <b>Translated from --> {source} to {dest}</b>:\n\n"
-        f"👉🏻 <code>{translation.text}</code>\n\n"
+        f"📍 <code>{translation.text}</code>\n\n"
         f"@MusicDownloadv2bot"
     )
 
