@@ -1,6 +1,6 @@
 import os
 from pyrogram import Client ,filters
-from handlers.findone import find_one
+from handlers.check_user import find_one
 import config
 
 ADMIN = config.AUTH_USERS
