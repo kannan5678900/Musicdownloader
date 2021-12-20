@@ -14,6 +14,7 @@ from plugins.google import get_text
 def send_spotify_songs(client, message: Message):
     msg = message.reply_text("`Processing...`")
     song_link = get_text(message)
+    print(f"Spotify:{song_link}")
     chat_id = message.chat.id
     download_path = os.getcwd() + "/" + str(uuid.uuid4())
     if not song_link:
@@ -24,7 +25,6 @@ def send_spotify_songs(client, message: Message):
         spotdl.send_songs_from_directory(download_path, client, message)
         try:
             msg.delete()
-            print(song_link)
         except Exception as e:
             msg.edit('😔 𝙵𝚊𝚒𝚕𝚎𝚍\n\n𝚁𝚎𝚙𝚘𝚛𝚝 𝚃𝚑𝚒𝚜 𝙴𝚛𝚛𝚘𝚛 𝚝𝚘 𝙵𝚒𝚡 @Peterparker6 🧡')
             print(e)
