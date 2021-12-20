@@ -28,6 +28,7 @@ def get_text(message: Message) -> [None, str]:
 async def grs(client, message):
     pablo = await edit_or_reply(message, "`Processing..`")
     query = get_text(message)
+    print(f"Google:{query}")
     if not query:
         await pablo.edit(
             "`Give me Something to Search😌`.\n\n`/google Avengers`"
