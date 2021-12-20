@@ -14,7 +14,7 @@ async def song(client, message):
     m = await message.reply('🔎 `Searching for your Song...`')
     query = get_text(message)
     if not query:
-        await m.edit("**Give me song name...**\n/s Believer")
+        await m.edit("**Give me a song name to download...**\n`/s Believer`")
         return
     print(f"song:{query}")
     chat_id = message.chat.id   
@@ -59,13 +59,13 @@ async def song(client, message):
 
         except Exception as e:
             print(e)
-            m.edit('**Found Nothing ❌\nChange the Spelling and try**')
+            await m.edit('**Found Nothing ❌\nChange the Spelling and try**')
             return
     except Exception as e:
-        m.edit("**Sorry**\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 𝖮𝗋 𝖲𝖾𝖺𝗋𝖼𝗁 𝖺𝗍 Google.com 𝖥𝗈𝗋 𝖢𝗈𝗋𝗋𝖾𝖼𝗍 𝖲𝗉𝖾𝗅𝗅𝗂𝗇𝗀 𝗈𝖿 𝗍𝗁𝖾 **Song**.\n\nEg.`/s Believer`")
+        await m.edit("**Sorry**\n\n𝖯𝗅𝖾𝖺𝗌𝖾 𝖳𝗋𝗒 𝖠𝗀𝖺𝗂𝗇 𝖮𝗋 𝖲𝖾𝖺𝗋𝖼𝗁 𝖺𝗍 Google.com 𝖥𝗈𝗋 𝖢𝗈𝗋𝗋𝖾𝖼𝗍 𝖲𝗉𝖾𝗅𝗅𝗂𝗇𝗀 𝗈𝖿 𝗍𝗁𝖾 **Song**.\n\nEg.`/s Believer`")
         print(str(e))
         return
-    m.edit("`Uploading Your Song....Please Wait`🙏\nPlease don't **Spam** me![🥺](https://telegra.ph/file/33e209cb838912e8714c9.mp4)")
+    await m.edit("`Uploading Your Song....Please Wait`🙏\nPlease don't **Spam** me![🥺](https://telegra.ph/file/33e209cb838912e8714c9.mp4)")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -78,13 +78,13 @@ async def song(client, message):
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
-        client.send_chat_action(chat_id, "upload_photo")
-        message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
-        client.send_chat_action(chat_id, "upload_audio")
-        message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=thumb_name)
-        m.delete()
+        await client.send_chat_action(chat_id, "upload_photo")
+        await message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
+        await client.send_chat_action(chat_id, "upload_audio")
+        await message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=thumb_name)
+        await m.delete()
     except Exception as e:
-        m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
+        await m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
         print(e)
     try:
         os.remove(audio_file)
