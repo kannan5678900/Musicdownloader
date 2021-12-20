@@ -11,7 +11,7 @@ from plugins.google import get_text
 
 @Client.on_message(filters.command(["s", "song", "music"]))
 async def song(client, message):
-    m = message.reply('🔎 `Searching for your Song...`')
+    m = await message.reply('🔎 `Searching for your Song...`')
     query = get_text(message)
     if not query:
         await m.edit("**Give me song name...**\n/s Believer")
