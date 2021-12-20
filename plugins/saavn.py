@@ -18,6 +18,9 @@ async def saavn(client, message):
     if not query:
         await msg.edit("**Invalid Syntax\nTry :** `/saavn Verithanam`")
         return
+    if 'url' in query:
+        await msg.edit("Link not Support")
+        return
     search = f"http://starkmusic.herokuapp.com/result/?query={query}"
     saavn = requests.get(search, allow_redirects=False).json()
     try:
