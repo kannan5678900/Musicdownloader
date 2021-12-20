@@ -7,6 +7,7 @@ from plugins.google import get_text
 @Client.on_message(filters.command(["yts", "ytsearch"]))
 async def yt_search(client, message):
     query = get_text(message)
+    print(f"ytsearch:{query}")
     if not query:
         return await message.reply_text("`Give me Something to Search in YouTube!`😇")
     try:
