@@ -57,6 +57,7 @@ url = 'https://graphql.anilist.co'
 async def anime(client, message): 
     chat_id = message.chat.id
     search = message.text.split(" ", 1)
+    print(f"Anime:{search}")
     if len(search) == 1:
         await message.reply("`Give me any Anime name to Search.😊`\n\n`/anime Avengers`")
         return
