@@ -10,7 +10,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from plugins.google import get_text
 
 @Client.on_message(filters.command(["s", "song", "music"]))
-def a(client, message):
+async def song(client, message):
     m = message.reply('🔎 `Searching for your Song...`')
     query = get_text(message)
     print(query)
