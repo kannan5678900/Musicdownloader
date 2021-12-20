@@ -15,6 +15,7 @@ async def saavn(client, message):
     msg = await message.reply_text("`Downloading...`")
     chat_id = message.chat.id
     query = get_text(message)
+    print(f"Saavn:{query}")
     if not query:
         await msg.edit("**Invalid Syntax\nTry :** `/saavn Verithanam`")
         return
@@ -42,7 +43,6 @@ async def saavn(client, message):
             await client.send_chat_action(chat_id, "upload_audio")
             await message.reply_audio(audio=ffile, title=song, performer=singer, caption=iron_man, reply_markup=buttons, quote=True)
             await msg.delete()
-            print(query)
     except Exception as e:
         await msg.edit("⚠️ **Something went wrong.please try again**")    
         print(e)
