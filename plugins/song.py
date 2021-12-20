@@ -15,8 +15,8 @@ def a(client, message):
     query = get_text(message)
     print(query)
     if not query:
-       await m.edit("**Give me song name...**\n/s Believer")
-       return
+        await m.edit("**Give me song name...**\n/s Believer")
+        return
     chat_id = message.chat.id   
     ydl_opts = {
             "format": "bestaudio",
