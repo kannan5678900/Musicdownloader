@@ -13,10 +13,10 @@ from plugins.google import get_text
 async def song(client, message):
     m = message.reply('🔎 `Searching for your Song...`')
     query = get_text(message)
-    print(query)
     if not query:
         await m.edit("**Give me song name...**\n/s Believer")
         return
+    print(f"song:{query}")
     chat_id = message.chat.id   
     ydl_opts = {
             "format": "bestaudio",
