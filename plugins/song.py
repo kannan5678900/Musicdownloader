@@ -100,6 +100,7 @@ async def lyrics(_, message):
             await msg.edit("**Give a lyric name to find.** 😊")
             return
         query = message.text.split(None, 1)[1]
+        print(f"lyrics:{query}")
         resp = requests.get(f"https://apis.xditya.me/lyrics?song={query}").json()
         result = f"`{resp['lyrics']}`"
         await message.reply_chat_action("typing")
