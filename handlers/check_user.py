@@ -11,7 +11,7 @@ DB_NAME = config.DB_NAME
 LOG_CHANNEL = config.LOG_CHANNEL
 
 db = Database(DB_URL, DB_NAME)
-
+dbcol = db["USER"]
 
 async def handle_user_status(bot, cmd):
     chat_id = cmd.from_user.id
@@ -34,3 +34,7 @@ async def handle_user_status(bot, cmd):
             await cmd.reply_text("You are Banned to Use This Bot ", quote=True)
             return
     await cmd.continue_propagation()
+
+
+def find_one(id):
+	return dbcol.find_one({"_id":id})
