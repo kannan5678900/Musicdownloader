@@ -15,7 +15,7 @@ async def video(client, message):
     query = get_text(message)
     print(f"Video:{query}")
     if not query:
-        await msg.edit("**Please give me a valid song name**\n`/v Believer`")
+        await m.edit("**Please give me a valid song name**\n`/v Believer`")
     chat_id = message.chat.id
     ydl_opts = {
         "format": "best/bestaudio+bestvideo",
