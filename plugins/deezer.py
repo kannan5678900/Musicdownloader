@@ -114,6 +114,13 @@ async def saavn(client, message):
     if 'url' in query:
         await msg.edit("Link not Support")
         return
+    link = f"https://api.deezer.com/search?q={query}&limit=1"
+    dato = requests.get(url=link).json()
+    match = dato.get("data")
+    urlhp = match[0]
+    urlp = urlhp.get("link")
+    thums = urlhp["album"]["cover_big"]
+    thumb = wget.download(thums)
     search = f"http://starkmusic.herokuapp.com/result/?query={query}"
     saavn = requests.get(url=search, allow_redirects=False).json()
     try:
@@ -133,7 +140,7 @@ async def saavn(client, message):
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton('💥 Listen', url=f'{me["perma_url"]}')]])
             os.rename(file, ffile)
             await client.send_chat_action(chat_id, "upload_audio")
-            await message.reply_audio(audio=ffile, title=song, performer=singer, caption=iron_man, reply_markup=buttons, quote=True)
+            await message.reply_audio(audio=ffile, thumb=thumb, title=song, performer=singer, caption=iron_man, reply_markup=buttons, quote=True)
             await msg.delete()
     except Exception as e:
         await msg.edit("⚠️ **Something went wrong.please try again**")    
