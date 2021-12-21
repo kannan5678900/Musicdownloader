@@ -101,7 +101,7 @@ async def deezer(client, message: Message):
     await client.send_chat_action(message.chat.id, "cancel")
     await pablo.delete()
 
-@Client.on_message(filters.command("saavn", "jio"))
+@Client.on_message(filters.command(["saavn"]))
 async def saavn(client, message):
     msg = await message.reply_text("`Downloading...`")
     chat_id = message.chat.id
