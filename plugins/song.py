@@ -47,13 +47,10 @@ async def song(client, message):
         try:
             link = f"https://youtube.com{results[0]['url_suffix']}"
             title = results[0]["title"]
-            atitle = results[0]["alt_title"]
             thumbnail = results[0]["thumbnails"][0]
             duration = results[0]["duration"]
             views = results[0]["views"]
-
-            thor = results[0]["channel"]
-          
+            thor = results[0]["channel"]          
             thumb_name = f'thumb{message.message_id}.jpg'
             thumb = requests.get(thumbnail, allow_redirects=True)
             open(thumb_name, 'wb').write(thumb.content)
@@ -82,7 +79,7 @@ async def song(client, message):
         await client.send_chat_action(chat_id, "upload_photo")
         await message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
         await client.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=True, title=atitle, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=thumb_name)
+        await message.reply_audio(audio_file, caption=rep, parse_mode='md',quote=True, title=title, duration=dur, performer=str(info_dict["uploader"]), reply_markup=buttons, thumb=thumb_name)
         await m.delete()
     except Exception as e:
         await m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
