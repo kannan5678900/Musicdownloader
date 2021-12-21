@@ -101,8 +101,8 @@ async def deezer(client, message: Message):
                 progress=progress,
                 progress_args=(pablo, c_time, f"`Uploading {sname} Song From Deezer!`", sname),
             )
-           await client.send_chat_action(message.chat.id, "cancel")
-           await pablo.delete()
+            await client.send_chat_action(message.chat.id, "cancel")
+            await pablo.delete()
 
 @Client.on_message(filters.command(["saavn"]))
 async def saavn(client, message):
