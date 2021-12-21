@@ -80,27 +80,29 @@ async def deezer(client, message: Message):
     replo = urlp[29:]
     urlp = f"https://starkapi.herokuapp.com/deezer/{replo}"
     datto = requests.get(url=urlp, allow_redirects=False).json()
-    mus = datto.get("url")
-    sname = f"{urlhp.get('title')}.mp3"
-    doc = requests.get(mus)
-    await client.send_chat_action(message.chat.id, "upload_audio")
-    await pablo.edit("`Downloading Song From Deezer!`")
-    with open(sname, "wb") as f:
-        f.write(doc.content)
-    c_time = time.time()
-    await pablo.edit(f"`Downloaded {sname}! Now Uploading Song...`")
-    await client.send_audio(
-        message.chat.id,
-        audio=open(sname, "rb"),
-        duration=int(urlhp.get("duration")),
-        title=str(urlhp.get("title")),
-        performer=str(polu.get("name")),
-        thumb=thum_f,
-        progress=progress,
-        progress_args=(pablo, c_time, f"`Uploading {sname} Song From Deezer!`", sname),
-    )
-    await client.send_chat_action(message.chat.id, "cancel")
-    await pablo.delete()
+    try:
+        for hi in datto:
+            mus = hi["url"]
+            sname = f"{urlhp.get('title')}.mp3"
+            doc = requests.get(mus)
+            await client.send_chat_action(message.chat.id, "upload_audio")
+            await pablo.edit("`Downloading Song From Deezer!`")
+            with open(sname, "wb") as f:
+                f.write(doc.content)
+            c_time = time.time()
+            await pablo.edit(f"`Downloaded {sname}! Now Uploading Song...`")
+            await client.send_audio(
+                message.chat.id,
+                audio=open(sname, "rb"),
+                duration=int(urlhp.get("duration")),
+                title=str(urlhp.get("title")),
+                performer=str(polu.get("name")),
+                thumb=thum_f,
+                progress=progress,
+                progress_args=(pablo, c_time, f"`Uploading {sname} Song From Deezer!`", sname),
+            )
+           await client.send_chat_action(message.chat.id, "cancel")
+           await pablo.delete()
 
 @Client.on_message(filters.command(["saavn"]))
 async def saavn(client, message):
