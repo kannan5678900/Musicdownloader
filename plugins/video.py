@@ -53,6 +53,10 @@ async def video(client, message):
             print(e)
             await m.edit('**Found Nothing ❌**\nChange the **Spelling** and Try🌝.\n\n`/v Faded`')
             return
+    except Exception as e:
+            await m.edit("**Please provide a song name to Download.**\n`/v Believer`")
+            print(str(e))
+            return
     await m.edit("__Uploading Your Video....Please Wait__🙏🏻\nPlease don't **Spam** me![🥺](https://telegra.ph/file/988fecf605d9e2caf0a50.mp4)")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
