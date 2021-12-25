@@ -121,6 +121,7 @@ async def saavn(client, message):
     urlp = urlhp.get("link")
     thums = urlhp["album"]["cover_big"]
     thumb = wget.download(thums)
+    await message.reply_photo(photo=thumb)
     search = f"http://starkmusic.herokuapp.com/result/?query={query}"
     saavn = requests.get(url=search, allow_redirects=False).json()
     try:
