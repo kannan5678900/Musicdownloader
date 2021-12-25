@@ -6,7 +6,7 @@ TgCrypto
 aiofiles
 requests
 dnspython
-yt_dlp
+yt-dlp
 gtts
 googletrans==4.0.0rc1
 httpx==0.13.3
