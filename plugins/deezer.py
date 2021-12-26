@@ -80,7 +80,7 @@ async def deezer(client, message: Message):
     replo = urlp[29:]
     urlp = f"https://starkapi.herokuapp.com/deezer/{replo}"
     datto = requests.get(url=urlp, allow_redirects=False).json()
-    mus = datto["url"]
+    mus = datto.get("url")
     sname = f"{urlhp.get('title')}.mp3"
     doc = requests.get(mus)
     await client.send_chat_action(message.chat.id, "upload_audio")
