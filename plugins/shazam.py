@@ -8,6 +8,21 @@ from bot import bot
 
 shazam = Shazam()
 
+
+@Client.on_callback_query()
+async def cb_handler(bot, update):
+    if update.data == "source":
+        await update.answer(
+            text="<b>Hello,You are Idiot</b>🤣",
+            show_alert=True
+        )
+    elif update.data == "delete":
+        await update.message.delete(True)
+        try:
+            await update.message.reply_to_message.delete(True)
+        except BaseException:
+            pass
+
 async def edit_or_reply(message, text, parse_mode="md"):
     if message.from_user.id:
         if message.reply_to_message:
@@ -99,12 +114,3 @@ async def voice_handler(client, message):
         reply_markup=reply_markup
     )
     await msg.delete()
-
-@Client.on_callback_query()
-async def cb_handler(bot, update):
-    if update.data == "delete":
-        await update.message.delete(True)
-        try:
-            await update.message.reply_to_message.delete(True)
-        except BaseException:
-            pass
