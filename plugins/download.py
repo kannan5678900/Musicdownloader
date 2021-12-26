@@ -21,8 +21,7 @@ async def down(client, message):
          "postprocessors": [
              {
                 "key": "FFmpegVideoConvertor",
-                "preferredcodec": "mp4",
-                "preferredquality": "720",
+                "preferedformat": "mp4",
              },
           ],
           "quiet": True,
