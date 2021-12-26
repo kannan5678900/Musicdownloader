@@ -107,12 +107,12 @@ async def saavn(client, message):
     msg = await message.reply_text("`Downloading...`")
     chat_id = message.chat.id
     query = get_text(message)
-    print(f"Saavn:{query}")
+    print(f"saavn:{query}")
     if not query:
         await msg.edit("**Invalid Syntax\nTry :** `/saavn Verithanam`")
         return
     if 'https://www.jiosaavn.com/song' in query:
-        await msg.edit("Link not Support")
+        await msg.edit("Currently link not Support!! 😔")
         return
     link = f"https://api.deezer.com/search?q={query}&limit=1"
     dato = requests.get(url=link).json()
