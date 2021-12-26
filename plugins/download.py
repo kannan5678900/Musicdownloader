@@ -25,7 +25,6 @@ async def down(client, message):
                 "preferredquality": "720",
              },
           ],
-          "outtmpl": "%(title)s.mp4",
           "quiet": True,
     }
     try:
