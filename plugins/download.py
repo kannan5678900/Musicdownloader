@@ -15,5 +15,5 @@ async def down(client, message):
         await client.send_file(he)
         await msg.delete()
     except Exception as e:
-        msg.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
+        await msg.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
         print(e)
