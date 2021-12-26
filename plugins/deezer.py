@@ -111,7 +111,7 @@ async def saavn(client, message):
     if not query:
         await msg.edit("**Invalid Syntax\nTry :** `/saavn Verithanam`")
         return
-    if 'url' in query:
+    if 'https://www.jiosaavn.com/song' in query:
         await msg.edit("Link not Support")
         return
     link = f"https://api.deezer.com/search?q={query}&limit=1"
