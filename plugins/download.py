@@ -8,6 +8,9 @@ from plugins.google import get_text
 async def down(client, message):
     msg = await message.reply("Processing...")
     query = get_text(message)
+    if not query:
+        await msg.edit("**എനിക്ക് എന്തെങ്കിലും താടാ**")
+        return
     video = {}
     try:
         with yt_dlp.YoutubeDL(video) as ydl:
