@@ -12,20 +12,7 @@ async def down(client, message):
     if not query:
         await msg.edit("**എനിക്ക് എന്തെങ്കിലും താടാ**")
         return
-    video = {
-         "addmetadata": False,
-         "key": "FFmpegMetadata",
-         "prefer_ffmpeg": True,
-         "geo_bypass": True,
-         "nocheckcertificate": True,
-         "postprocessors": [
-             {
-                "key": "FFmpegVideoConvertor",
-                "preferedformat": "mp4",
-             },
-          ],
-          "quiet": True,
-    }
+    video = {}
     try:
         with yt_dlp.YoutubeDL(video) as ydl:
             he = ydl.download(query)
