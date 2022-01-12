@@ -8,7 +8,7 @@ trans = Translator()
 async def translate(_, message: Message) -> None:
     reply_msg = message.reply_to_message
     if not reply_msg:
-        await message.reply_text("**Please reply to a message to translate it!** 😊")
+        await message.reply_text("**Please reply to a message to translate it!** 😊\n\nSupporting Languages - /lang")
         return
     if reply_msg.caption:
         to_translate = reply_msg.caption
@@ -33,3 +33,7 @@ async def translate(_, message: Message) -> None:
     )
 
     await message.reply_text(reply, parse_mode="html", quote=True)
+
+@Client.on_message(filters.command(["lang", "language"]))
+async def lang(client, message):
+    await message.reply("https://telegra.ph/Music-Downloader-12-20")
