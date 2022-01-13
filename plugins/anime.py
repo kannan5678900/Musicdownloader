@@ -5,6 +5,8 @@ import requests
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram import filters, Client
 
+from plugins.google import get_text
+
 def shorten(description, info='anilist.co'):
     msg = ""
     if len(description) > 700:
@@ -57,9 +59,9 @@ url = 'https://graphql.anilist.co'
 async def anime(client, message): 
     hi = await message.reply("🔎")
     chat_id = message.chat.id
-    search = message.text.split(" ", 1)
+    search = get_text(message)
     print(f"Anime:{search}")
-    if len(search) == 1:
+    if not search:
         await hi.edit("`Give me any Anime name to Search.😊`\n\n`/anime Avengers`")
         return
     else:
