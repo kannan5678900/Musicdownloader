@@ -55,11 +55,12 @@ url = 'https://graphql.anilist.co'
 
 @Client.on_message(filters.command(['anime']))
 async def anime(client, message): 
+    hi = await message.reply("🔎")
     chat_id = message.chat.id
     search = message.text.split(" ", 1)
     print(f"Anime:{search}")
     if len(search) == 1:
-        await message.reply("`Give me any Anime name to Search.😊`\n\n`/anime Avengers`")
+        await hi.edit("`Give me any Anime name to Search.😊`\n\n`/anime Avengers`")
         return
     else:
         search = search[1]
@@ -111,3 +112,4 @@ async def anime(client, message):
                 await message.reply(msg)
         else:
             await message.reply(msg)
+            await hi.delete()
