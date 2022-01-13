@@ -109,9 +109,11 @@ async def anime(client, message):
             try:
                 await client.send_chat_action(chat_id, "upload_photo")
                 await message.reply_photo(photo=image, caption=msg, reply_markup=InlineKeyboardMarkup(buttons), quote=True)
+                await hi.delete(hi)
             except:
                 msg += f" [〽️]({image})"
                 await message.reply(msg)
+                await hi.delete(hi)
         else:
             await message.reply(msg)
-            await hi.delete()
+            await hi.delete(hi)
