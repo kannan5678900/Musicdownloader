@@ -26,7 +26,7 @@ def get_text(message: Message) -> [None, str]:
 
 @Client.on_message(filters.command(['google']))
 async def grs(client, message):
-    pablo = await edit_or_reply(message, "`Processing..`")
+    pablo = await message.reply("🔎")
     query = get_text(message)
     print(f"Google:{query}")
     if not query:
