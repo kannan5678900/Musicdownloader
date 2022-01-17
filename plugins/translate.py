@@ -113,7 +113,7 @@ async def translate(_, message: Message) -> None:
 
     await message.reply_text(reply, parse_mode="html", quote=True)
 
-@Client.on_message(filters.command(["lang", "language"]))
-async def lang(client, message):
-    CLOSE = InlineKeyboardMarkup([[InlineKeyboardButton('Close ❌', callback_data="del")]])
-    await message.reply_text(text=TEXT, quote=True, reply_markup=CLOSE)
+# @Client.on_message(filters.command(["lang", "language"]))
+# async def lang(client, message):
+#    CLOSE = InlineKeyboardMarkup([[InlineKeyboardButton('Close ❌', callback_data="del")]])
+#    await message.reply_text(text=TEXT, quote=True, reply_markup=CLOSE)
