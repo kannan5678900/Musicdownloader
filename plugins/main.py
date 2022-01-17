@@ -307,7 +307,7 @@ async def rate(client, message):
        await message.reply_chat_action("typing")
        await message.reply_text(text=Message, reply_markup=Button, quote=True)
 
-@Client.on_message(filters.command(["langs"]))
+@Client.on_message(filters.command(["lang", "language"]))
 async def lang(client, message):
     CLOSE = InlineKeyboardMarkup([[InlineKeyboardButton('Close ❌', callback_data="close")]])
     await message.reply_text(text=TEXT, quote=True, reply_markup=CLOSE)
