@@ -4,6 +4,15 @@ from gpytranslate import Translator
 
 trans = Translator()
 
+@Client.on_callback_query()
+async def cb_handler(bot, update):
+    if update.data == "close":
+        await update.message.delete(True)
+        try:
+            await update.message.reply_to_message.delete(True)
+        except BaseException:
+            pass
+
 TEXT = """💛 <u>**Language Codes**</u>
 
           • `af` - Afrikaans 
