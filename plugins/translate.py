@@ -4,6 +4,76 @@ from gpytranslate import Translator
 
 trans = Translator()
 
+TEXT = """💛 <u>**Language Codes**</u>
+
+          • `af` - Afrikaans 
+          • `am` - Amharic 
+          • `ar` - Arabic 
+          • `az` - Azerbaijani 
+          • `be` - Belarusian 
+          • `bg` - Bulgarian 
+          • `bn` - Bengali 
+          • `bs` - Bosnian 
+          • `ca` - Catalan 
+          • `ceb` - Chechen 
+          • `co` - Corsican 
+          • `cs` - Czech 
+          • `cy` - Welsh 
+          • `da` - Danish 
+          • `de` - German 
+          • `el` - Greek 
+          • `en` - English 
+          • `eo` - Esperanto 
+          • `es` - Spanish 
+          • `et` - Estonian 
+          • `eu` - Basque 
+          • `fa` - Persian 
+          • `fi` - Finnish 
+          • `fr` - French 
+          • `fy` - WesternFrisian
+          • `ga` - Irish 
+          • `gd` - Gaelic 
+          • `gl` - Galician 
+          • `gu` - Gujarati 
+          • `ha` - Hausa 
+          • `haw` - ??? 
+          • `hi` - Hindi 
+          • `hmn` - ??? 
+          • `hr` - Croatian 
+          • `ko` - Korean 
+          • `ku` - Kurdish 
+          • `ky` - Kirghiz 
+          • `la` - Latin 
+          • `lb` - Luxembourgish 
+          • `lo` - Lao 
+          • `lt` - Lithuanian 
+          • `lv` - Latvian 
+          • `mg` - Malagasy 
+          • `mi` - Maori 
+          • `mk` - Macedonian 
+          • `ml` - Malayalam 
+          • `mn` - Mongolian 
+          • `mr` - Marathi 
+          • `ms` - Malay 
+          • `sk` - Slovak 
+          • `sl` - Slovenian 
+          • `sm` - Samoan 
+          • `sn` - Shona 
+          • `so` - Somali 
+          • `sq` - Albanian 
+          • `sr` - Serbian 
+          • `st` - Southern Sotho
+          • `su` - Sundanese 
+          • `sv` - Swedish 
+          • `sw` - Swahili 
+          • `ta` - Tamil 
+          • `te` - Telugu 
+          • `zh_CN` - Chinese 
+          • `zh_TW` - Chinese 
+          • `zu` - Zulu 
+
+**By @MusicDownloadv2bot**"""
+
 @Client.on_message(filters.command(["tl", "tr"]))
 async def translate(_, message: Message) -> None:
     reply_msg = message.reply_to_message
@@ -36,4 +106,4 @@ async def translate(_, message: Message) -> None:
 
 @Client.on_message(filters.command(["lang", "language"]))
 async def lang(client, message):
-    await message.reply("https://telegra.ph/Music-Downloader-12-20")
+    await message.reply_text(text=TEXT, quote=True)
