@@ -12,6 +12,7 @@ import config
 from handlers.broadcast import broadcast
 from handlers.check_user import handle_user_status
 from handlers.database import Database
+from plugins.translate import TEXT
 
 LOG_CHANNEL = config.LOG_CHANNEL
 AUTH_USERS = config.AUTH_USERS
@@ -305,3 +306,8 @@ async def rate(client, message):
        Message = f"**{message.from_user.mention()}**,__I am very Happy to Hear That! 🥰\n\nThis will be an inspiration to my master😀\nRate me [Here](https://t.me/tlgrmcbot?start=musicdownloadv2bot-review)__"
        await message.reply_chat_action("typing")
        await message.reply_text(text=Message, reply_markup=Button, quote=True)
+
+@Client.on_message(filters.command(["langs"]))
+async def lang(client, message):
+    CLOSE = InlineKeyboardMarkup([[InlineKeyboardButton('Close ❌', callback_data="close")]])
+    await message.reply_text(text=TEXT, quote=True, reply_markup=CLOSE)
