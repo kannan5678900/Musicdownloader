@@ -1,12 +1,12 @@
 from pyrogram import Client, filters
-from pyrogram.types import Message
 from gpytranslate import Translator
+from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 trans = Translator()
 
 @Client.on_callback_query()
 async def cb_handler(bot, update):
-    if update.data == "close":
+    if update.data == "del":
         await update.message.delete(True)
         try:
             await update.message.reply_to_message.delete(True)
@@ -115,4 +115,5 @@ async def translate(_, message: Message) -> None:
 
 @Client.on_message(filters.command(["lang", "language"]))
 async def lang(client, message):
-    await message.reply_text(text=TEXT, quote=True)
+    CLOSE = InlineKeyboardMarkup([[InlineKeyboardButton('Close ❌', callback_data="del")]])
+    await message.reply_text(text=TEXT, quote=True, reply_markup=CLOSE)
