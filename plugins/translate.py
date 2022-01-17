@@ -5,7 +5,7 @@ from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMa
 trans = Translator()
 
 @Client.on_callback_query()
-async def cb_handler(bot, update):
+async def call(bot, update):
     if update.data == "del":
         await update.message.delete(True)
         try:
