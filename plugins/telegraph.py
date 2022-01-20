@@ -18,7 +18,8 @@ def get_file_id(msg: Message):
             "video",
             "video_note",
             "voice",
-            "sticker"
+            "sticker",
+            "text"
         ):
             obj = getattr(msg, message_type)
             if obj:
