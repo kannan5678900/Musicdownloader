@@ -21,9 +21,9 @@ def convert(text):
 @Client.on_message(filters.command("tts"))
 async def text_to_speech(client, message: Message):
     if not message.reply_to_message:
-        return await message.reply_text("`Please Reply to Some Text...`✌️")
+        return await message.reply_text("Please Reply to Some Text...✌️")
     if not message.reply_to_message.text:
-        return await message.reply_text("`This is Not Text Message...`😡")
+        return await message.reply_text("This is Not Text Message...😡")
     chat_id = message.chat.id
     m = await message.reply_text("`Converting to Speech...`")
     text = message.reply_to_message.text
