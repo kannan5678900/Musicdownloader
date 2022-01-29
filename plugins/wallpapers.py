@@ -14,7 +14,7 @@ async def wall(client, message):
     if not wall:
         await msg.edit("Give me Something")
         return
-    json_rep = r.get(f"https://wall.alphacoders.com/api2.0/get.php?auth={WALL_API}&method=search&term={wall}").json()
+    json_rep = r.get(f"https://wall.alphacoders.com/search.php?search={wall}").json()
     if not json_rep.get("success"):
         await msg.edit(f"An error occurred")
     else:
