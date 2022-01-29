@@ -34,9 +34,10 @@ async def ytdl(_, message):
         now = datetime.now()
         user_time[message.chat.id] = now + \
                                          timedelta(minutes=youtube_next_fetch)
-    except Exception:
+    except Exception as e:
         await msg.edit("`Failed To Fetch Youtube Data... 😔 \nPossible Youtube Blocked server ip \n#error`")
         return
+        print(e)
     buttons = InlineKeyboardMarkup(list(create_buttons(formats)))
     try:
         img = wget.download(thumbnail_url)
