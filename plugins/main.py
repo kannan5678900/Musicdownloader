@@ -63,7 +63,7 @@ About_text = """--<u>**About Me 😎**</u>--
 
 💮 ʟɪʙʀᴀʀʏ : [Pyrogram](https://docs.pyrogram.org/)
 
-💨 ʙᴜɪʟᴅ sᴛᴀᴛs : `V4.3 [Beta]`
+💨 ʙᴜɪʟᴅ sᴛᴀᴛs : `V4.4 [Beta]`
 
 ⭕ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : [🤥Click here](https://github.com)"""
 
