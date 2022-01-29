@@ -16,7 +16,7 @@ async def wall(client, message):
         return
     json_rep = r.get(f"https://wall.alphacoders.com/api2.0/get.php?auth={WALL_API}&method=search&term={wall}").json()
     if not json_rep.get("success"):
-        await msg.edit(f"An error occurred! Report this @{SUPPORT_CHAT}")
+        await msg.edit(f"An error occurred")
     else:
         wallpapers = json_rep.get("wallpapers")
         if not wallpapers:
