@@ -1,4 +1,5 @@
 import os
+from os import getenv
 import ffmpeg
 import time
 import requests
@@ -6,6 +7,9 @@ import yt_dlp
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
+from aiohttp import ClientSession
+from Python_ARQ import ARQ
 
 from plugins.google import get_text
 
