@@ -7,14 +7,15 @@ from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from aiohttp import ClientSession
+import aiohttp
 from Python_ARQ import ARQ
 
 from plugins.google import get_text
 from config import ARQ_API_URL, ARQ_API_KEY
 
-aiohttpsession = ClientSession()
-arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
+session = aiohttp.ClientSession()
+arq = ARQ(ARQ_API_URL, ARQ_API_KEY, session)
+await session.close()
 
 @Client.on_message(filters.command(["s", "song", "music"]))
 async def song(client, message):
