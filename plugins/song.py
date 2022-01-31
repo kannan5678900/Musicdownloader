@@ -12,6 +12,10 @@ from aiohttp import ClientSession
 from Python_ARQ import ARQ
 
 from plugins.google import get_text
+from config import ARQ_API_URL, ARQ_API_KEY
+
+aiohttpsession = ClientSession()
+arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 
 @Client.on_message(filters.command(["s", "song", "music"]))
 async def song(client, message):
@@ -103,10 +107,10 @@ async def lyrics(_, message):
             return
         query = message.text.split(None, 1)[1]
         print(f"lyrics:{query}")
-        resp = requests.get(f"https://apis.xditya.me/lyrics?song={query}").json()
-        result = f"`{resp['lyrics']}`"
-        await message.reply_chat_action("typing")
-        await message.reply(result, quote=True)
+#       resp = requests.get(f"https://apis.xditya.me/lyrics?song={query}").json()
+        resp = arq.lyrics(query)
+        result = resp.result
+        await message.reply(text=result, quote=True)
         await msg.delete()
     except Exception:
         await msg.edit("❌ **lyrics not found.\n\nplease give a valid song name.**")
