@@ -13,8 +13,8 @@ from Python_ARQ import ARQ
 from plugins.google import get_text
 from config import ARQ_API_URL, ARQ_API_KEY
 
-session = aiohttp.ClientSession()
-arq = ARQ(ARQ_API_URL, ARQ_API_KEY, session)
+# session = aiohttp.ClientSession()
+# arq = ARQ(ARQ_API_URL, ARQ_API_KEY, session)
 
 @Client.on_message(filters.command(["s", "song", "music"]))
 async def song(client, message):
@@ -100,6 +100,9 @@ async def song(client, message):
 @Client.on_message(filters.command(["lyrics", "lyric"]))
 async def lyrics(_, message):
     msg = await message.reply_text("🔎 **Searching Lyrics....**")
+    session = aiohttp.ClientSession()
+    arq = ARQ(ARQ_API_URL, ARQ_API_KEY, session)
+    await session.close()
     try:
         if len(message.command) < 2:
             await msg.edit("**Give a lyric name to find.** 😊")
