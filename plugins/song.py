@@ -15,7 +15,7 @@ from config import ARQ_API_URL, ARQ_API_KEY
 
 session = aiohttp.ClientSession()
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, session)
-await session.close()
+session.close()
 
 @Client.on_message(filters.command(["s", "song", "music"]))
 async def song(client, message):
