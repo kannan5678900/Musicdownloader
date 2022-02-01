@@ -141,7 +141,7 @@ async def saavn(client, message):
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton('💥 Listen', url=f'{me["perma_url"]}')]])
             os.rename(file, ffile)
             await client.send_chat_action(chat_id, "upload_audio")
-            await message.reply_audio(audio=file, title=song, performer=singer, caption=iron_man, reply_markup=buttons, quote=True)
+            await message.reply_audio(audio=ffile, title=song, performer=singer, caption=iron_man, reply_markup=buttons, quote=True)
             await msg.delete()
     except Exception as e:
         await msg.edit("⚠️ **Something went wrong.please try again**")    
