@@ -135,7 +135,7 @@ async def saavn(client, message):
             langs = me['language']
             hidden_url = me['media_url']
             year = me['year']
-            file = wget.download(hidden_url)
+            file = wget.download(permurl)
             ffile = file.replace(f"{file}", f"{song}.mp3")
             iron_man = f"⚡ **Title** : __{song}__\n💫 **Album** : __{album}__\n🗣️ **Artist** : __{singer}__\n⏳ **Duration** : `{dur}`\n📋 **Language** : `{langs}`\n🔮 **Released on** : `{year}`"
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton('💥 Listen', url=f'{me["perma_url"]}')]])
