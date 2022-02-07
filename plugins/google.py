@@ -28,7 +28,8 @@ def get_text(message: Message) -> [None, str]:
 async def grs(client, message):
     pablo = await message.reply("🔎")
     query = get_text(message)
-    print(f"Google:{query}")
+    user_id = message.from_user.id
+    print(f"Google:{query}.UserId: {user_id}")
     if not query:
         await pablo.edit(
             "`Give me Something to Search😌`.\n\n`/google Avengers`"
