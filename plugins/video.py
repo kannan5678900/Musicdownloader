@@ -13,7 +13,8 @@ from plugins.google import get_text
 async def video(client, message):
     m = await message.reply("`🔎Searching for your Video Song...`")
     query = get_text(message)
-    print(f"Video:{query}")
+    user_id = message.from_user.id
+    print(f"Video:{query}.UserId: {user_id}")
     chat_id = message.chat.id
     ydl_opts = {
         "format": "best/bestaudio+bestvideo",
