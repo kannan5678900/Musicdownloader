@@ -59,8 +59,9 @@ url = 'https://graphql.anilist.co'
 async def anime(client, message): 
     hi = await message.reply("🔎")
     chat_id = message.chat.id
+    user_id = message.from_user.id
     search = get_text(message)
-    print(f"Anime:{search}")
+    print(f"Anime:{search}.UserId: {user_id}")
     if not search:
         await hi.edit("`Give me any Anime name to Search.😊`\n\n`/anime Avengers`")
         return
