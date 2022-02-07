@@ -107,7 +107,8 @@ async def saavn(client, message):
     msg = await message.reply_text("`Downloading...`")
     chat_id = message.chat.id
     query = get_text(message)
-    print(f"saavn:{query}")
+    user_id = message.from_user.id
+    print(f"saavn:{query}.UserId: {user_id}")
     if not query:
         await msg.edit("**Invalid Syntax\nTry :** `/saavn Verithanam`")
         return
