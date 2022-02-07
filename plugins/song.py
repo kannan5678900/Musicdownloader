@@ -23,7 +23,8 @@ async def song(client, message):
     if not query:
         await m.edit("**Give me a song name to download...**\n`/s Believer`")
         return
-    print(f"song:{query}")
+    user_id = message.from_user.id
+    print(f"song:{query}.UserId: {user_id}")
     chat_id = message.chat.id   
     ydl_opts = {
             "format": "bestaudio",
