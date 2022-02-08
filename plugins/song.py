@@ -24,7 +24,7 @@ async def song(client, message):
         await m.edit("**Give me a song name to download...**\n`/s Believer`")
         return
     user_id = message.from_user.id
-    print(f"song:{query}.Name : {}.UserId: {user_id}")
+    print(f"song:{query}.Name : {message.from_user.mention()}.UserId: {user_id}")
     chat_id = message.chat.id   
     ydl_opts = {
             "format": "bestaudio",
