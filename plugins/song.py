@@ -110,8 +110,8 @@ async def lyrics(_, message):
             return
         query = message.text.split(None, 1)[1]
         print(f"lyrics:{query}")
-#       resp = requests.get(f"https://apis.xditya.me/lyrics?song={query}").json()
-        resp = await arq.lyrics(query)
+        resp = requests.get(f"https://apis.xditya.me/lyrics?song={query}").json()
+#       resp = await arq.lyrics(query)
         result = resp.result
         await message.reply(text=result, quote=True)
         await msg.delete()
