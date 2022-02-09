@@ -104,11 +104,11 @@ async def lyrics(_, message):
     session = aiohttp.ClientSession()
     arq = ARQ(ARQ_API_URL, ARQ_API_KEY, session)
     await session.close()
+    query = get_text(message)
     try:
-        if len(message.command) < 2:
+        if not query:
             await msg.edit("**Give a lyric name to find.** 😊")
-            return
-        query = message.text.split(None, 1)[1]
+            return       
         print(f"lyrics:{query}")
         resp = requests.get(f"https://apis.xditya.me/lyrics?song={query}").json()
 #       resp = await arq.lyrics(query)
