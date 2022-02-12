@@ -32,7 +32,7 @@ async def grs(client, message):
     print(f"Google:{query}.UserId: {user_id}")
     if not query:
         await pablo.edit(
-            "`Give me Something to Search😌`.\n\n`/google Avengers`"
+            "Give me Something to Search😌.\n\n`/google Avengers`"
         )
         return
     query = urllib.parse.quote_plus(query)
