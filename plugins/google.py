@@ -36,11 +36,9 @@ async def grs(client, message):
         )
         return
     query = urllib.parse.quote_plus(query)
-    number_result = 8
+    number_result = 10
     ua = UserAgent()
-    google_url = (
-        "https://www.google.com/search?q=" + query + "&num=" + str(number_result)
-    )
+    google_url = ("https://www.google.com/search?q=" + query + "&num=" + str(number_result))
     response = requests.get(google_url, {"User-Agent": ua.random})
     soup = BeautifulSoup(response.text, "html.parser")
     result_div = soup.find_all("div", attrs={"class": "ZINbbc"})
