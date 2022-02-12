@@ -104,7 +104,7 @@ async def deezer(client, message: Message):
 
 @Client.on_message(filters.command(["saavn"]))
 async def saavn(client, message):
-    msg = await message.reply_text("`Downloading...`")
+    msg = await message.reply_text("Downloading...")
     chat_id = message.chat.id
     query = get_text(message)
     user_id = message.from_user.id
@@ -138,7 +138,7 @@ async def saavn(client, message):
             year = me['year']
             file = wget.download(hidden_url)
             ffile = file.replace(f"{file}", f"{song}.mp3")
-            iron_man = f"⚡ **Title** : __{song}__\n💫 **Album** : __{album}__\n🗣️ **Artist** : __{singer}__\n⏳ **Duration** : `{dur}`\n📋 **Language** : `{langs}`\n🔮 **Released on** : `{year}`"
+            iron_man = f"**Title** : __{song}__\n**Album** : __{album}__\n**Artist** : __{singer}__\n**Duration** : `{dur}`\n**Language** : `{langs}`\n**Released on** : `{year}`"
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton('🎧 Listen', url=f'{me["perma_url"]}')]])
             os.rename(file, ffile)
             await client.send_chat_action(chat_id, "upload_audio")
