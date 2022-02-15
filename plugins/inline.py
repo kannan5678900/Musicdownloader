@@ -228,8 +228,8 @@ async def inline_func(client, query):
         query = urllib.parse.quote_plus(string)
         hel = string.split(" ", 1)[-1]
         song = await JIO(hel)
-        hi = requests.get(url=song).json()
-        for me in hi:
+#       hi = requests.get(url=song).json()
+        for me in song:
             title = me['song']
             singer = me['singers']
             dur = me['duration']
