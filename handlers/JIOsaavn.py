@@ -5,6 +5,6 @@ JIO = "http://starkmusic.herokuapp.com/result/?query={}"
 
 async def JIO(query: str):
     async with aiohttp.ClientSession() as session:
-        async with session.get(requote_uri(JIO.format(query))) as res:
+        async with session.get(requote_uri(JIO(query))) as res:
             return (await res.json())["results"] if ((await res.json()).get("results", None) is not None) else []
 
