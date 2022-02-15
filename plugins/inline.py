@@ -1,5 +1,6 @@
 from pyrogram import types, filters
 from bot import bot
+from handlers.JIOsaavn import *
 import re
 import urllib
 import requests
@@ -225,8 +226,8 @@ async def inline_func(client, query):
             )
             return
         query = urllib.parse.quote_plus(string)
-        hel = (string.split(None, 1)[1])
-        song = f"http://starkmusic.herokuapp.com/result/?query={hel}"
+        hel = string.split(" ", 1)[-1]
+        song = JIO(hel)
         hi = requests.get(url=song).json()
         for me in hi:
             title = me['song']
@@ -243,3 +244,11 @@ async def inline_func(client, query):
                       message_text=xxx)
               )
          )
+
+
+@Client.on_inline_query()
+async def inline(bot, query):
+
+          searche = query.query
+          if searche.startswith("1"):
+                await JIO(bot, query, searche)
