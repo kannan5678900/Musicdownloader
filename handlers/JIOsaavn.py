@@ -1,10 +1,9 @@
 import aiohttp
-from requests.utils import requote_uri
+import requests
 
-JIO = "http://starkmusic.herokuapp.com/result/?query={}"
+JIO = "http://starkmusic.herokuapp.com/result/?query={query}"
 
 async def JIO(query: str):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(requote_uri(JIO(query))) as res:
-            return (await res.json())["results"] if ((await res.json()).get("results", None) is not None) else []
+    async with requests.get(JIO) as res:
+        return (await res.json())["results"] if ((await res.json()).get("results", None) is not None) else []
 
