@@ -15,7 +15,7 @@ def send_spotify_songs(client, message: Message):
     msg = message.reply_text("`Processing...`")
     song_link = get_text(message)
     user_id = message.from_user.id
-    print(f"Spotify:{song_link}.UserId: {user_id}")
+    print(f"Spotify:{song_link}.NAME: {message.from_user.mention()}-UserId: {user_id}")
     chat_id = message.chat.id
     download_path = os.getcwd() + "/" + str(uuid.uuid4())
     if not song_link:
