@@ -239,9 +239,9 @@ async def inline_func(client, query):
                 cache_time=0
             )
             return
-        query = urllib.parse.quote_plus(string)
-        hel = inline_text(query)
-        song = f"http://starkmusic.herokuapp.com/result/?query={hel}"
+        hel = (string.split(" ", 1)[-1])
+        query = urllib.parse.quote_plus(hel)
+        song = f"http://starkmusic.herokuapp.com/result/?query={query}"
         hi = requests.get(url=song).json()
         for me in hi:
             title = me['song']
