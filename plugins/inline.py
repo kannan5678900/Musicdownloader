@@ -10,6 +10,20 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 from youtubesearchpython import SearchVideos
 
+def inline_text(query) -> [None, str]:
+    """Extract Text From Commands"""
+    text_to_return = query.text
+    if message.text is None:
+        return None
+    if " " in text_to_return:
+        try:
+            return query.text.split(None, 1)[1]
+        except IndexError:
+            return None
+    else:
+        return None
+
+
 
 @bot.on_inline_query()
 async def inline_func(client, query):
@@ -226,8 +240,8 @@ async def inline_func(client, query):
             )
             return
         query = urllib.parse.quote_plus(string)
-        hel = string.split(" ", 1)[-1]
-        song = f"http://starkmusic.herokuapp.com/result/?query=First_Class"
+        hel = inline_text(query)
+        song = f"http://starkmusic.herokuapp.com/result/?query={hel}"
         hi = requests.get(url=song).json()
         for me in hi:
             title = me['song']
