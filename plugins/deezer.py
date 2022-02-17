@@ -143,15 +143,15 @@ async def saavn(client, message):
             file = wget.download(hidden_url)
             ffile = file.replace(f"{file}", f"{song}.mp3")
             os.rename(file, ffile)
-            file1 = open(ffile, "rb")
-            file1.write(thums.content)
-            file1.close()
+#            file1 = open(ffile, "wb")
+#            file1.write(thums.content)
+#            file1.close()
           
             iron_man = f"**Title** : __{song}__\n**Album** : __{album}__\n**Artist** : __{singer}__\n**Duration** : `{dur}`\n**Language** : `{langs}`\n**Released on** : `{year}`"
             buttons = InlineKeyboardMarkup([[InlineKeyboardButton('🎧 Listen', url=f'{me["perma_url"]}')]])
             
             await client.send_chat_action(chat_id, "upload_audio")
-            await message.reply_audio(audio=file1, title=song, performer=str(singer), caption=iron_man, reply_markup=buttons, quote=True)
+            await message.reply_audio(audio=open(file1 "rb"), title=song, performer=str(singer), caption=iron_man, reply_markup=buttons, quote=True)
             await msg.delete()
     except Exception as e:
         await msg.edit("⚠️ **Something went wrong.please try again**")    
