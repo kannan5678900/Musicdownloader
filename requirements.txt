@@ -7,7 +7,7 @@ aiofiles
 requests
 dnspython
 python-arq
-yt-dlp
+yt-dlp==2022.02.04
 gtts
 googletrans==4.0.0rc1
 httpx==0.13.3
