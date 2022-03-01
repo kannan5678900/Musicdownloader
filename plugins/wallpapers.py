@@ -1,5 +1,6 @@
 import os
 import requests as r
+import wget
 from random import randint
 from pyrogram import Client, filters
 from plugins.google import get_text
@@ -24,9 +25,10 @@ async def wall(client, message):
             return
         index = randint(0, len(wallpapers) - 1)  # Choose random index
         wallpaper = wallpapers[index]
-        wallpaper = wallpaper.get("url_image")
-        wallpaper = wallpaper.replace("\\", "")
+        wallpaper1 = wallpaper.get("url_image")
+        go = wget.download(wallpaper1)
+#        wallpaper = wallpaper.replace("\\", "")
         caption = f"{wall}"
-        await client.send_photo(chat_id, photo=wallpaper, caption="Preview", timeout=60, quote=True)
+        await client.send_photo(chat_id, photo=go, caption="Preview", timeout=60, quote=True)
         await client.send_document(chat_id, document=wallpaper, filename="wallpaper", caption=caption, quote=True, timeout=60)
         await msg.delete()
