@@ -30,5 +30,5 @@ async def wall(client, message):
 #        wallpaper = wallpaper.replace("\\", "")
         caption = f"{wall}"
         await client.send_photo(chat_id, photo=go, caption="Preview", timeout=60, quote=True)
-        await client.send_document(chat_id, document=wallpaper, filename="wallpaper", caption=caption, quote=True, timeout=60)
+        await client.send_document(chat_id, document=go, filename="wallpaper", caption=caption, quote=True, timeout=60)
         await msg.delete()
