@@ -10,7 +10,7 @@ from pyrogram.types import Message
 
 from plugins.google import get_text
 
-@Client.on_message(filters.command(["spotify"]))
+@Client.on_message(filters.command(["spotify", "spot"]))
 def send_spotify_songs(client, message: Message):
     msg = message.reply_text("`Processing...`")
     song_link = get_text(message)
