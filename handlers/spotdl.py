@@ -15,8 +15,8 @@ def send_songs_from_directory(
     directory_path: str, client, message: Message):
     directory = os.listdir(directory_path)
     chat_id = message.chat.id
-    Title = os.basename(directory_path)
-    caption = f"Title : {Title}\n**Uploaded By : @MusicDownloadv2bot**"
+#   Title = os.basename(directory_path)
+    caption = f"**Uploaded By : @MusicDownloadv2bot**"
     for file in directory:
         if not file.endswith(".mp3"):
             continue
