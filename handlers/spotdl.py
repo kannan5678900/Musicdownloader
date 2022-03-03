@@ -13,9 +13,10 @@ def download_from_spotify(download_path: str, link: List[str]):
 
 def send_songs_from_directory(
     directory_path: str, client, message: Message):
-    directory = os.basename(directory_path)
+    directory = os.listdir(directory_path)
     chat_id = message.chat.id
-    caption = f"**Uploaded By : @MusicDownloadv2bot**"
+    Title = os.directory.basename(directory_path)
+    caption = f"Title : {Title}\n**Uploaded By : @MusicDownloadv2bot**"
     for file in directory:
         if not file.endswith(".mp3"):
             continue
