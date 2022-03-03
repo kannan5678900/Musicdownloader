@@ -13,7 +13,7 @@ def download_from_spotify(download_path: str, link: List[str]):
 
 def send_songs_from_directory(
     directory_path: str, client, message: Message):
-    directory = os.listdir(directory_path)
+    directory = os.basename(directory_path)
     chat_id = message.chat.id
     caption = f"**Uploaded By : @MusicDownloadv2bot**"
     for file in directory:
