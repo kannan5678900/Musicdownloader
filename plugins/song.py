@@ -21,7 +21,7 @@ async def song(client, message):
     m = await message.reply('🔎 Searching for your Song...')
     query = get_text(message)
     if not query:
-        await m.edit("**Give me a song name to download...**\n`/s Believer`")
+        await m.edit("Give me a song name to download...\n`/s Believer`")
         return
     if 'https://www.shazam.com/' in query:
         await m.edit("Hey, give me a Song name or YouTube Link.😕")
