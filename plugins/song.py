@@ -23,7 +23,7 @@ async def song(client, message):
     if not query:
         await m.edit("Give me a song name to download...\n`/s Believer`")
         return
-    if 'https://www.shazam.com/' in query:
+    if 'https://www.shazam.com/' or 'https://open.spotify.com/' in query:
         await m.edit("Hey, give me a Song name or YouTube Link.😕")
         return
     user_id = message.from_user.id
