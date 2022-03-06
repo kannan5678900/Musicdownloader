@@ -22,6 +22,8 @@ def send_spotify_songs(client, message: Message):
         return msg.edit("**Invalid Format ⛔\nEg** : `/spotify Believer`\n\n`/spotify https://open.spotify.com/track/0pqnGHJpmpxLKifKRmU6WP`")
     if 'https://www.shazam.com/' in song_link:
         return msg.edit('__Hmm Strange 😑__')
+    if "(" in song_link:
+        return msg.edit("Please Remove "( )" and try...")
 #    if 'https://youtube.com/' or 'http://www.youtube.com/' in song_link:
 #        return msg.edit(f"Are you Kidding me?\n\n`/music {song_link}`")
     try:       
