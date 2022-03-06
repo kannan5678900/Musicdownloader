@@ -22,8 +22,8 @@ def send_spotify_songs(client, message: Message):
         return msg.edit("**Invalid Format ⛔\nEg** : `/spotify Believer`\n\n`/spotify https://open.spotify.com/track/0pqnGHJpmpxLKifKRmU6WP`")
     if 'https://www.shazam.com/' in song_link:
         return msg.edit('__Hmm Strange 😑__')
-    if 'https://youtube.com/' or 'http://www.youtube.com/' in song_link:
-        return msg.edit(f"Are you Kidding me?\n\n`/music {song_link}`")
+#    if 'https://youtube.com/' or 'http://www.youtube.com/' in song_link:
+#        return msg.edit(f"Are you Kidding me?\n\n`/music {song_link}`")
     try:       
         msg.edit(f"`Uploading Your Song From` **Spotify...\nPlease Wait for Some Seconds**[😪](https://telegra.ph/file/99dfbd8791044f70db76b.jpg)")
         spotdl.download_from_spotify(download_path, song_link)
