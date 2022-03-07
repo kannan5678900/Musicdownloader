@@ -213,8 +213,7 @@ async def inline_func(client, query):
                     title=thum,
                     description=hmmkek,
                     input_message_content=InputTextMessageContent(
-                      message_text=okayz),
-                    thumb_url=mio["thumbnails"][0]["url"],
+                      message_text=okayz)
               )
         )
         try:
