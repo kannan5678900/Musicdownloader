@@ -7,7 +7,7 @@ from music_tag import load_file
 @Client.on_message(filters.command(["edit"]))
 async def tag(bot, message):
     msg = await message.reply("Downloading...")
-    music = message.reply_to_message
+#    music = message.reply_to_message
     if not message.reply_to_message:
         return await msg.edit("please reply to some message")
     if not message.reply_to_message.audio:
