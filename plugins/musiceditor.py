@@ -7,11 +7,13 @@ from music_tag import load_file
 @Client.on_message(filters.command(["edit"]))
 async def tag(bot, message):
     msg = await message.reply("Downloading...")
-    audio = message.reply_to_message.audio
-    if not audio:
+    music = message.reply_to_message
+    if not message.reply_to_message:
+        return await msg.edit("please reply to some message")
+    if not message.reply_to_message.audio:
         return await msg.edit("reply to some audio")
-    await message.download(f"temp/{message.audio.file_name}.mp3")
-    music = load_file(f"temp/{message.audio.file_name}.mp3")
+    await message.download(f"temp/{message.reply_to_message.audio.file_name}.mp3")
+    music = load_file(f"temp/{message.reply_to_message.audio.file_name}.mp3")
 
     try:
         artwork = music['artwork']
@@ -43,4 +45,4 @@ async def tag(bot, message):
     except Exception as e:
         print(e)
         return
-    os.remove(f"temp/{message.audio.file_name}.mp3") 
+    os.remove(f"temp/{message.reply_to_message.audio.file_name}.mp3") 
