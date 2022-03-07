@@ -1,7 +1,6 @@
 from pyrogram import Client, filters
 import os
 import io
-from pyromod import listen
 from PIL import Image
 from music_tag import load_file
 
