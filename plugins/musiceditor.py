@@ -24,10 +24,10 @@ async def tag(bot, message):
         image_data = None
 
     await msg.delete()
-    fname = await bot.ask(message.chat.id,'`Send the Filename`', filters=filters.text, parse_mode='Markdown')
-    title = await bot.ask(message.chat.id,'`Send the Title name`', filters=filters.text, parse_mode='Markdown')
-    artist = await bot.ask(message.chat.id,'`Send the Artist(s) name`', filters=filters.text, parse_mode='Markdown')
-    answer = await bot.ask(message.chat.id,'`Send the Artwork or` /skip', filters=filters.photo | filters.text, parse_mode='Markdown')
+    fname = await message.reply(message.chat.id,'`Send the Filename`', filters=filters.text, parse_mode='Markdown')
+    title = await message.reply(message.chat.id,'`Send the Title name`', filters=filters.text, parse_mode='Markdown')
+    artist = await message.reply(message.chat.id,'`Send the Artist(s) name`', filters=filters.text, parse_mode='Markdown')
+    answer = await message.reply(message.chat.id,'`Send the Artwork or` /skip', filters=filters.photo | filters.text, parse_mode='Markdown')
     music.remove_tag('artist')
     music.remove_tag('title')
     music['artist'] = artist.text
