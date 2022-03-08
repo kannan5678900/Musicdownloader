@@ -92,7 +92,7 @@ async def song(client, message):
         await client.send_chat_action(chat_id, "upload_photo")
         await message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
         await client.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(audio=audio_file, caption=rep, parse_mode='md',quote=True, title=title, duration=dur, performer=artist if artist or uploader else None, reply_markup=buttons, thumb=thumb_name)
+        await message.reply_audio(audio=audio_file, caption=rep, parse_mode='md',quote=True, title=title, duration=dur, performer=artist or uploader, reply_markup=buttons, thumb=thumb_name)
         await m.delete()
     except Exception as e:
         await m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
