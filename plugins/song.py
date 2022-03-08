@@ -81,6 +81,7 @@ async def song(client, message):
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
         artist = str(info_dict["artist"])
+        uploader = str(info_dict["uploader"])
         ironman = f'• **Tittle** : __{title}__\n• **Channel** : `{thor}`\n• **Link** : {link}\n• **Requested For** : `{query}`'
         rep = f"🎧 𝗧𝗶𝘁𝘁𝗹𝗲 : [{title[:35]}]({link})\n⏳ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : `{duration}`\n👀 𝗩𝗶𝗲𝘄𝘀 : `{views}`\n\n📮 **By** : [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n📤 𝗕𝘆 : [Music Downloader 🎶](https://t.me/MusicDownloadv2bot)"
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=f'yt ')]])
@@ -91,7 +92,7 @@ async def song(client, message):
         await client.send_chat_action(chat_id, "upload_photo")
         await message.reply_photo(thumbnail, caption=ironman, parse_mode='md', ttl_seconds=500)
         await client.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(audio=audio_file, caption=rep, parse_mode='md',quote=True, title=title, duration=dur, performer=artist if artist else None, reply_markup=buttons, thumb=thumb_name)
+        await message.reply_audio(audio=audio_file, caption=rep, parse_mode='md',quote=True, title=title, duration=dur, performer=artist if artist or uploader else None, reply_markup=buttons, thumb=thumb_name)
         await m.delete()
     except Exception as e:
         await m.edit(f'😔**Failed**\n\n__Report this Error to my [Master](https://t.me/Peterparker6)\nOr try__ : `/spotify {query}`')
