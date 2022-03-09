@@ -81,7 +81,7 @@ async def song(client, message):
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
         artist = str(info_dict["artist"])
-        uploader = str(info_dict["uploader"])
+#        uploader = str(info_dict["uploader"])
         ironman = f'• **Tittle** : __{title}__\n• **Channel** : `{thor}`\n• **Link** : {link}\n• **Requested For** : `{query}`'
         rep = f"🎧 𝗧𝗶𝘁𝘁𝗹𝗲 : [{title[:35]}]({link})\n⏳ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : `{duration}`\n👀 𝗩𝗶𝗲𝘄𝘀 : `{views}`\n\n📮 **By** : [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n📤 𝗕𝘆 : [Music Downloader 🎶](https://t.me/MusicDownloadv2bot)"
         buttons = InlineKeyboardMarkup([[InlineKeyboardButton('sᴇᴀʀᴄʜ ɪɴʟɪɴᴇ', switch_inline_query_current_chat=f'yt ')]])
@@ -103,22 +103,18 @@ async def song(client, message):
     except Exception as e:
         print(e)
 
-@Client.on_message(filters.command(["lyrics", "lyric"]))
+@Client.on_message(filters.command(["lyric"]))
 async def lyrics(_, message):
-    msg = await message.reply_text("🔎 **Searching Lyrics....**")
-    session = aiohttp.ClientSession()
-    arq = ARQ(ARQ_API_URL, ARQ_API_KEY, session)
-    await session.close()
-    query = get_text(message)
     try:
-        if not query:
-            await msg.edit("**Give a lyric name to find.** 😊")
-            return       
-        print(f"lyrics:{query}")
-        resp = requests.get(f"https://apis.xditya.me/lyrics?song={query}").json()
-#       resp = await arq.lyrics(query)
-        result = resp.result
-        await message.reply(text=result, quote=True)
-        await msg.delete()
+        if len(message.command) < 2:
+            await message.reply_text("» **give a lyric name too.**")
+            return
+        query = message.text.split(None, 1)[1]
+        rep = await message.reply_text("🔎 **searching lyrics...**")
+        resp = requests.get(
+            f"https://apis.xditya.me/lyrics?song={query}"
+        ).json()
+        result = f"`{resp['lyrics']}`"
+        await rep.edit(result)
     except Exception:
-        await msg.edit("❌ **lyrics not found.\n\nplease give a valid song name.**")
+        await rep.edit("❌ **lyric not found")
