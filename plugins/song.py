@@ -80,7 +80,7 @@ async def song(client, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        artist = str(info_dict["artist"])
+#        artist = str(info_dict["artist"])
 #        uploader = str(info_dict["uploader"])
         ironman = f'• **Tittle** : __{title}__\n• **Channel** : `{thor}`\n• **Link** : {link}\n• **Requested For** : `{query}`'
         rep = f"🎧 𝗧𝗶𝘁𝘁𝗹𝗲 : [{title[:35]}]({link})\n⏳ 𝗗𝘂𝗿𝗮𝘁𝗶𝗼𝗻 : `{duration}`\n👀 𝗩𝗶𝗲𝘄𝘀 : `{views}`\n\n📮 **By** : [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n📤 𝗕𝘆 : [Music Downloader 🎶](https://t.me/MusicDownloadv2bot)"
@@ -103,14 +103,14 @@ async def song(client, message):
     except Exception as e:
         print(e)
 
-@Client.on_message(filters.command(["lyric"]))
+@Client.on_message(filters.command(["lyric", "lyrics"]))
 async def lyrics(_, message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("» **give a lyric name too.**")
+            await message.reply_text("**Invalid Format**\n`/lyrics Believer`")
             return
         query = message.text.split(None, 1)[1]
-        rep = await message.reply_text("🔎 **searching lyrics...**")
+        rep = await message.reply_text("🔎 **Searching lyrics...**")
         resp = requests.get(
             f"https://apis.xditya.me/lyrics?song={query}"
         ).json()
