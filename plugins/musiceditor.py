@@ -4,8 +4,16 @@ import os
 import io
 from PIL import Image
 from music_tag import load_file
+from config import API_HASH, API_ID, BOT_TOKEN
 
-@Client.on_message(filters.command(["edit"]))
+Bot = Client(
+    "MusicEditorBot",
+    bot_token = BOT_TOKEN,
+    api_id = API_ID,
+    api_hash = API_HASH
+)
+
+@Bot.on_message(filters.command(["edit"]))
 async def tag(bot, message):
     msg = await message.reply("Downloading...")
     hello = message.reply_to_message
