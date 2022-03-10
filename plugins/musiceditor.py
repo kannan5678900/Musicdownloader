@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from pyromod import listen
+# from pyromod import listen
 import os
 import io
 from PIL import Image
