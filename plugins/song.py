@@ -110,6 +110,7 @@ async def lyrics(_, message):
             await message.reply_text("**Invalid Format**\n`/lyrics Believer`")
             return
         query = message.text.split(None, 1)[1]
+        print(f"Lyrics:{query}")
         rep = await message.reply_text("🔎 **Searching lyrics...**")
         resp = requests.get(
             f"https://apis.xditya.me/lyrics?song={query}"
