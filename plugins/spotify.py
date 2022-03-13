@@ -28,8 +28,8 @@ async def send_spotify_songs(client, message: Message):
 #        return msg.edit(f"Are you Kidding me?\n\n`/music {song_link}`")
     try:       
         await msg.edit(f"`Uploading Your Song From` **Spotify...\nPlease Wait for Some Seconds**[😪](https://telegra.ph/file/99dfbd8791044f70db76b.jpg)")
-        spotdl.download_from_spotify(download_path, song_link)
-        spotdl.send_songs_from_directory(download_path, client, message)
+        await spotdl.download_from_spotify(download_path, song_link)
+        await spotdl.send_songs_from_directory(download_path, client, message)
         try:
             await msg.delete()
         except Exception as e:
