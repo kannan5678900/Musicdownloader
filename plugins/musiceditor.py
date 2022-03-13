@@ -10,6 +10,7 @@ from music_tag import load_file
 async def tag(bot, message):
     msg = await message.reply("Downloading...")
     hello = message.reply_to_message
+    chat_id = message.chat.id
     if not message.reply_to_message:
         return await msg.edit("please reply to some message")
     if not message.reply_to_message.audio:
@@ -43,7 +44,7 @@ async def tag(bot, message):
     music.save()
 
     try:
-        await bot.send_audio(chat_id=message.chat.id, file_name=fname.text, performer=artist.text, title=title.text, duration=message.reply_to_message.audio.duration, audio=f"temp/{message.reply_to_message.audio.file_name}.mp3", thumb='temp/artwork.jpg' if answer.photo or image_data else None)
+        await message.reply_audio(chat_id=chat_id, performer=artist.text, title=title.text, duration=message.reply_to_message.audio.duration, audio=f"temp/{message.reply_to_message.audio.file_name}.mp3", thumb='temp/artwork.jpg' if answer.photo or image_data else None)
     except Exception as e:
         print(e)
         return
