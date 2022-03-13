@@ -12,9 +12,9 @@ async def tag(bot, message):
     hello = message.reply_to_message
     chat_id = message.chat.id
     if not message.reply_to_message:
-        return await msg.edit("please reply to some message")
+        return await msg.edit("**Please reply to a MP3 file.**")
     if not message.reply_to_message.audio:
-        return await msg.edit("reply to some audio")
+        return await msg.edit("__This is not Audio__ 😡")
     await hello.download(f"temp/{message.reply_to_message.audio.file_name}.mp3")
     music = load_file(f"temp/{message.reply_to_message.audio.file_name}.mp3")
 
@@ -30,7 +30,7 @@ async def tag(bot, message):
     fname = await bot.ask(message.chat.id,'`Send the Filename`', filters=filters.text, parse_mode='Markdown')
     title = await bot.ask(message.chat.id,'`Send the Title name`', filters=filters.text, parse_mode='Markdown')
     artist = await bot.ask(message.chat.id,'`Send the Artist(s) name`', filters=filters.text, parse_mode='Markdown')
-    answer = await bot.ask(message.chat.id,'`Send the Artwork or` /skip', filters=filters.photo | filters.text, parse_mode='Markdown')
+    answer = await bot.ask(message.chat.id,'`Send a Photo or` /skip', filters=filters.photo | filters.text, parse_mode='Markdown')
     music.remove_tag('artist')
     music.remove_tag('title')
     music['artist'] = artist.text
@@ -44,8 +44,11 @@ async def tag(bot, message):
     music.save()
 
     try:
-        await message.reply_audio(performer=artist.text, title=title.text, duration=message.reply_to_message.audio.duration, audio=f"temp/{message.reply_to_message.audio.file_name}.mp3", thumb='temp/artwork.jpg' if answer.photo or image_data else None)
+        caption = f"**Title** : __{title.text}__\n**Artist** : __{artist.text}__"
+        await bot.send_chat_action(chat_id, "upload_audio")
+        await message.reply_audio(caption=caption, performer=artist.text, title=title.text, duration=message.reply_to_message.audio.duration, audio=f"temp/{message.reply_to_message.audio.file_name}.mp3", thumb='temp/artwork.jpg' if answer.photo or image_data else None)
     except Exception as e:
+        await message.reply("**Failed to edit file...**")
         print(e)
         return
     os.remove(f"temp/{message.reply_to_message.audio.file_name}.mp3") 
