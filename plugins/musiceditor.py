@@ -1,5 +1,6 @@
-from pyrogram import Client, filters
+from pyrogram import filters
 # from pyromod import listen
+from bot import bot
 import os
 import io
 from PIL import Image
@@ -13,7 +14,7 @@ Bot = Client(
     api_hash = API_HASH
 )
 
-@Bot.on_message(filters.command(["edit"]))
+@bot.on_message(filters.command(["edit"]))
 async def tag(bot, message):
     msg = await message.reply("Downloading...")
     hello = message.reply_to_message
