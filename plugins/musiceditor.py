@@ -43,7 +43,7 @@ async def tag(bot, message):
     music.save()
 
     try:
-        await bot.send_audio(chat_id=message.chat.id, file_name=fname.text, performer=artist.text, title=title.text, duration=m.audio.duration, audio=f"temp/{m.audio.file_name}.mp3", thumb='temp/artwork.jpg' if answer.photo or image_data else None)
+        await bot.send_audio(chat_id=message.chat.id, file_name=fname.text, performer=artist.text, title=title.text, duration=message.reply_to_message.audio.duration, audio=f"temp/{message.reply_to_message.audio.file_name}.mp3", thumb='temp/artwork.jpg' if answer.photo or image_data else None)
     except Exception as e:
         print(e)
         return
