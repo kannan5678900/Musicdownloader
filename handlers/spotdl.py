@@ -4,7 +4,7 @@ import subprocess
 from typing import List
 from pyrogram.types import Message
 
-def download_from_spotify(download_path: str, link: List[str]):
+async def download_from_spotify(download_path: str, link: List[str]):
 
     os.mkdir(download_path)
     os.chdir(download_path)
