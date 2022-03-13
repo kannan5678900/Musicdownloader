@@ -35,6 +35,8 @@ Help_text = """<u>🌟**Available Commands**</u>
 
 👉 /shazam - **To recognize replied audio.💨**
 
+👉 /edit - **To edit Audio files.🔥**
+
 👉 /lyrics - **To Get Song Lyrics.**🎼
 
 👉 /tts - **To Convert text to Speech.🔊**
@@ -63,7 +65,7 @@ About_text = """--<u>**About Me 😎**</u>--
 
 💮 ʟɪʙʀᴀʀʏ : [Pyrogram](https://docs.pyrogram.org/)
 
-💨 ʙᴜɪʟᴅ sᴛᴀᴛs : `V4.4 [Beta]`
+💨 ʙᴜɪʟᴅ sᴛᴀᴛs : `V5.0 [Stable]`
 
 ⭕ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ : [🤥Click here](https://github.com)"""
 
