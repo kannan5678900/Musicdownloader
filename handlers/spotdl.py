@@ -11,7 +11,7 @@ def download_from_spotify(download_path: str, link: List[str]):
     os.system(f'spotdl {link}')
     os.chdir("..")
 
-def send_songs_from_directory(
+async def send_songs_from_directory(
     directory_path: str, client, message: Message):
     directory = os.listdir(directory_path)
     chat_id = message.chat.id
@@ -21,8 +21,8 @@ def send_songs_from_directory(
         if not file.endswith(".mp3"):
             continue
         try:
-            client.send_chat_action(chat_id, "upload_audio")
-            client.send_audio(chat_id,caption=caption,audio=open(f'{directory_path}/{file}', 'rb'))
+            await client.send_chat_action(chat_id, "upload_audio")
+            await client.send_audio(chat_id,caption=caption,audio=open(f'{directory_path}/{file}', 'rb'))
         except Exception:
             client.send_message(chat_id, text=f"Failed to send song {file}")
 
