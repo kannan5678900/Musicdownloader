@@ -45,7 +45,7 @@ async def tag(bot, message):
     try:
         caption = f"**Title** : __{title.text}__\n**Artist** : __{artist.text}__"
         await bot.send_chat_action(chat_id, "upload_audio")
-        await message.reply_audio(caption=caption, performer=artist.text, title=title.text, duration=message.reply_to_message.audio.duration, audio=f"temp/{message.reply_to_message.audio.file_name}", thumb='temp/artwork.jpg' if answer.photo or image_data else None)
+        await message.reply_audio(caption=caption, performer=artist.text, title=title.text, duration=message.reply_to_message.audio.duration, audio=f"temp/{message.reply_to_message.audio.file_name}.mp3", thumb='temp/artwork.jpg' if answer.photo or image_data else None)
     except Exception as e:
         await message.reply("**Failed to edit file...**")
         print(e)
