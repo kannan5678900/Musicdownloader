@@ -112,7 +112,7 @@ async def voice_handler(client, message):
     except Exception as e:
         print(e)
         try:
-            PIC = "https://telegra.ph/file/742f8621239b22a5ddd1b.jpg"
+            PIC = "https://telegra.ph/file/6e2176a367cfdf52f98b9.jpg"
             await message.reply_photo(photo=PIC, caption=out, quote=True, reply_markup=reply_markup)
             await msg.delete()
         except Exception as e:
