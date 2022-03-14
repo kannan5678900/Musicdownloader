@@ -8,7 +8,6 @@ from bot import bot
 
 shazam = Shazam()
 
-
 @Client.on_callback_query()
 async def cb_handler(bot, update):
     if update.data == "source":
@@ -113,7 +112,8 @@ async def voice_handler(client, message):
     except Exception as e:
         print(e)
         try:
-            await message.reply_text(text=out, quote=True, reply_markup=reply_markup)
+            PIC = "https://telegra.ph/file/742f8621239b22a5ddd1b.jpg"
+            await message.reply_photo(photo=PIC, caption=out, quote=True, reply_markup=reply_markup)
         except Exception as e:
             await msg.edit('😔 𝙵𝚊𝚒𝚕𝚎𝚍\n\n𝚁𝚎𝚙𝚘𝚛𝚝 𝚃𝚑𝚒𝚜 𝙴𝚛𝚛𝚘𝚛 𝚝𝚘 𝙵𝚒𝚡 @Peterparker6 🧡')
             print(e)
