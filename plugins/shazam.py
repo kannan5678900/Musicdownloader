@@ -106,11 +106,19 @@ async def voice_handler(client, message):
           ]
     )                  
     reply_markup = InlineKeyboardMarkup(buttons)
-    await client.send_chat_action(chat_id, "upload_photo")
-    await message.reply_photo(
-        r['images']['coverarthq'],
-        caption=out,
-        quote=True,
-        reply_markup=reply_markup
-    )
-    await msg.delete()
+    try:
+        await client.send_chat_action(chat_id, "upload_photo")
+        await message.reply_photo(
+            r['images']['coverarthq'],
+            caption=out,
+            quote=True,
+            reply_markup=reply_markup
+        )
+        await msg.delete()
+    except Exception as e:
+        print(e)
+        try:
+            await message.reply_text(text=out, quote=True, reply_markup=reply_markup)
+        except Exception as e:
+            await msg.edit('😔 𝙵𝚊𝚒𝚕𝚎𝚍\n\n𝚁𝚎𝚙𝚘𝚛𝚝 𝚃𝚑𝚒𝚜 𝙴𝚛𝚛𝚘𝚛 𝚝𝚘 𝙵𝚒𝚡 @Peterparker6 🧡')
+            print(e)
