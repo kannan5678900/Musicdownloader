@@ -108,12 +108,7 @@ async def voice_handler(client, message):
     reply_markup = InlineKeyboardMarkup(buttons)
     try:
         await client.send_chat_action(chat_id, "upload_photo")
-        await message.reply_photo(
-            r['images']['coverarthq'],
-            caption=out,
-            quote=True,
-            reply_markup=reply_markup
-        )
+        await message.reply_photo(r['images']['coverarthq'], caption=out, quote=True, reply_markup=reply_markup)
         await msg.delete()
     except Exception as e:
         print(e)
