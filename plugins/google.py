@@ -24,7 +24,7 @@ def get_text(message: Message) -> [None, str]:
     else:
         return None
 
-@Client.on_message(filters.command(['google']))
+@Client.on_message(filters.command('google') & filters.private)
 async def grs(client, message):
     pablo = await message.reply("🔎")
     query = get_text(message)
