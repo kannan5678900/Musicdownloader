@@ -5,7 +5,7 @@ import io
 from PIL import Image
 from music_tag import load_file
 
-@Bot.on_message(filters.command(["edit"]))
+@Bot.on_message(filters.command("edit") & filters.private)
 async def tag(bot, message):
     msg = await message.reply("Downloading...")
     hello = message.reply_to_message
