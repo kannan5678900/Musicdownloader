@@ -55,7 +55,7 @@ anime_query = '''
 
 url = 'https://graphql.anilist.co'
 
-@Client.on_message(filters.command(['anime']))
+@Client.on_message(filters.command('anime') & filters.private)
 async def anime(client, message): 
     hi = await message.reply("🔎")
     chat_id = message.chat.id
