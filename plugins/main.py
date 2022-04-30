@@ -262,19 +262,19 @@ async def _banned_usrs(c, m):
 
     return
 
-@Client.on_message(filters.command(['help']))
+@Client.on_message(filters.command('help')  & filters.private)
 async def help(client, message):
        Help_buttons = InlineKeyboardMarkup([[InlineKeyboardButton('𝗖𝗹𝗼𝘀𝗲 ❌', callback_data="close")]])
        await message.reply_chat_action("typing")
        await message.reply_text(text=Help_text, reply_markup=Help_buttons, quote=True)
 
-@Client.on_message(filters.command(['about']))
+@Client.on_message(filters.command('about')  & filters.private)
 async def about(client, message):
        About_buttons = InlineKeyboardMarkup([[InlineKeyboardButton('𝗖𝗹𝗼𝘀𝗲 ❌', callback_data="close")]])
        await message.reply_chat_action("typing")
        await message.reply_text(text=About_text, reply_markup=About_buttons, quote=True)
 
-@Client.on_message(filters.command("ping"))
+@Client.on_message(filters.command("ping") & filters.private)
 async def ping_pong(client, m: Message): 
     start = time()
     copy = await m.reply_text("Pinging...")
@@ -284,7 +284,7 @@ async def ping_pong(client, m: Message):
         f"💛 `{delta_ping * 1000:.3f} ms`"
     )
 
-@Client.on_message(filters.command("uptime"))
+@Client.on_message(filters.command("uptime") & filters.private)
 async def get_uptime(client, m: Message):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
@@ -296,7 +296,7 @@ async def get_uptime(client, m: Message):
         f"• **Start time:** `{START_TIME_ISO}`"
     )   
 
-@Client.on_message(filters.command("rate"))
+@Client.on_message(filters.command("rate") & filters.private)
 async def rate(client, message):
        chat_id = message.from_user.id
        Button = InlineKeyboardMarkup(
