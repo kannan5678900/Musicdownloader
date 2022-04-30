@@ -73,7 +73,7 @@ async def get_artist_tracks(self, artist_id: int):
         except KeyError:
             return None
         
-@Client.on_message(filters.command("shazam"))
+@Client.on_message(filters.command("shazam") & filters.private)
 async def voice_handler(client, message):
     msg = await message.reply("`Processing.. please wait for some Seconds...`")
     chat_id = message.chat.id
