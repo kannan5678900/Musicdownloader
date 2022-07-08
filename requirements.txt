@@ -10,7 +10,7 @@ python-arq
 yt-dlp==2022.04.08
 gtts
 googletrans==4.0.0rc1
-httpx==0.13.3
+httpx
 ffmpeg-python
 beautifulsoup4==4.9.1
 youtube_search
